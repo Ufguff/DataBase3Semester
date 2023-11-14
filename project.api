@@ -38,10 +38,14 @@ main() -> int #<main.cpp>
 	Patient:%height : int #<patient.h>
 	Patient:%isIll : bool #<patient.h>
 	Patient:%ReadData : void #<patient.h>
+	Patient:%WriteData : void #<patient.h>
+	Patient:%Size() -> int #<patient.h>
+	Patient:%Recalc() -> void #<patient.h>
 	Patient:%ReadData : virtual void #<patient.h>
 	Patient:%WriteData : virtual void #<patient.h>
 	Patient:%Size() -> virtual int #<patient.h>
 	Patient:%Recalc() -> virtual void #<patient.h>
+	Patient::Patient :  #<patient.h>
 	Patient::DataBase :  #<patient.h>
 	Patient::Close() -> void #<patient.h>
 	Patient::Id() -> long #<patient.h>
