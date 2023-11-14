@@ -13,9 +13,9 @@ protected:
    virtual int Size() = 0;
    virtual void Recalc() = 0;
 private:
-   long amountOfRecord;    // суммарное количество записей
-   long numberOfRecord;    // текущая запись
-   bool isChangeable;  // можно ли изменять базу данных
+   long amountOfRecord = 0;    // суммарное количество записей
+   long numberOfRecord = 0;    // текущая запись
+   bool isChangeable = false;  // можно ли изменять базу данных
    std::string nameOfFile;     // название файла для работы с ним
    std::fstream fs;  // поток для файла
 public:

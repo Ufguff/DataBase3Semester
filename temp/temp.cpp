@@ -1,57 +1,41 @@
 
 
-
-
 using namespace std;
-
-// после написания основных функций узнать, надо ли каждый раз проверять на открытие потока
-
-void DataBase::Open()
+int main()
 {
-   fs.open(nameOfFile + ".db", fstream::out | fstream::binary);
-   // создание файла
+   setlocale(LC_ALL, "ru");
+   Patient *obj1 = new Patient("hospital1");
+   obj1->Open();
    
-   if ( ! fs.is_open() )//Проверка, если файл не открыт...
-      cout << endl <<"Всё плохо!" << endl;
-   else//или
-      cout << endl << "Всё хорошо!" << endl;
+   obj1->Insert();
    
-   fs.close();
-}
-
-void DataBase::Close()
-{
-   if (fs.is_open())    {cout << "всё гуд";  fs.close();}
-}
-
-long DataBase::Id()
-{
-   return numberOfRecord;   // надо ли рил -1 делать?
-}
-
-long DataBase::Count()
-{
-   return amountOfRecord;
-}
-
-void DataBase::Goto(long id)
-{
-   fs.seekg((id - 1)*Size());       // надо доработать + может на 1 чтобы точно считалось ??
-}
-
-void DataBase::First()
-{
-   fs.seekg(0);
-}
-
-void DataBase::Next()
-{
-   if (fs.Eof()){
-      numberOfRecord++;
-      fs.seekg((Id() - 1) * Size());
-   }
-}
-// next prev потраить
-void DataBase::Prev()
-{
-   if (_abracadabra_cast(fs);
+   obj1->SetName("Timofei");
+   obj1->SetAge(19);
+   obj1->SetWeight(65);
+   obj1->SetHeight(190);
+   obj1->SetIsIll(true);
+   obj1->Post();
+   
+   system("pause");
+   
+   obj1->Insert();
+   obj1->SetName("Ivan");
+   obj1->SetAge(13);
+   obj1->SetWeight(100);
+   obj1->SetHeight(2000);
+   obj1->SetIsIll(false);
+   obj1->Post();
+   
+   system("pause");
+   
+   obj1->Insert();
+   obj1->SetName("Sofia");
+   obj1->SetAge(15);
+   obj1->SetWeight(50);
+   obj1->SetHeight(160);
+   obj1->SetIsIll(false);
+   obj1->Post();
+   
+   system("pause");
+   
+   _abracadabra_cast(*(obj1));

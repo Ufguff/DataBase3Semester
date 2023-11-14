@@ -1,9 +1,9 @@
 # database.h patient.h
-!database.cpp cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype database.h errno.h exception fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
-!database.h cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype errno.h exception fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
-!main.cpp cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype database.h errno.h exception initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream patient.h signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
-!patient.cpp cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype database.h errno.h exception fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream patient.h signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
-!patient.h cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype database.h errno.h exception fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
+!database.cpp database.h fstream iostream #<#>
+!database.h fstream iostream #<#>
+!main.cpp database.h iostream patient.h #<#>
+!patient.cpp database.h fstream iostream patient.h #<#>
+!patient.h database.h fstream iostream #<#>
 DataBase _type_ #<database.h>
 Patient _type_ #<patient.h>
 main() -> int #<main.cpp>
