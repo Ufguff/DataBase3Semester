@@ -8,23 +8,21 @@ using namespace std;
 
 void DataBase::Open()
 {
-   fs.open(nameOfFile + ".db", fstream::out | fstream::binary);
+   fsin.open(nameOfFile + ".db");
    // создание файла
    
-   if ( ! fs.is_open() )        //Проверка, если файл не открыт...
+   if ( ! fsin.is_open() )        //Проверка, если файл не открыт...
       cout << endl <<"Всё плохо!" << endl;
    else//или
       cout << endl << "Всё хорошо!" << endl;
    
-   //int age = 19;
-   //fs.write((char*)&age, sizeof(age));
-   
-   fs.close();
+   fsin.close();
 }
 
 void DataBase::Close()
 {
-   if (fs.is_open())    {fs.close();}
+   if (fsin.is_open())  fsin.close();
+   if (fsout.is_open())    fsout.close();      
 }
 
 long DataBase::Id()
@@ -40,65 +38,73 @@ long DataBase::Count()
 void DataBase::Goto(long id)
 {
    numberOfRecord = id;
-   fs.seekg((numberOfRecord - 1)*Size(), ios::beg);       // надо доработать + может на 1 чтобы точно считалось ??
+   fsin.seekg((id - 1)*Size(), ios::beg);       // надо доработать + может на 1 чтобы точно считалось ??
 }
 
 void DataBase::First()
 {
-   fs.seekg(0, ios::beg);
+   numberOfRecord = 1;
+   //fsin.seekg(0, ios::beg);
+   Goto(Id());
 }
 
 void DataBase::Next()
 {
-   //if (Eof()){
+   if (!Eof()){
       numberOfRecord++;
-      fs.seekg((Id()) * Size(), ios::beg);
-   //}
+      Goto(Id());
+      //fsin.seekg((Id()) * Size(), ios::beg);
+   }
 }
 // next prev потраить
 void DataBase::Prev()
 {
-   if (Bof()) {
+   if (!Bof()) {
       numberOfRecord--;
-      fs.seekg((Id() - 1) * Size(), ios::beg);
+      fsin.seekg((Id() - 1) * Size(), ios::beg);
    }
 }
 
 void DataBase::Last()
 {
-   fs.seekg((Count() - 1) * Size(), ios::beg);
+   //fs.seekg((Count() - 1) * Size(), ios::beg);
+   Goto(Count());
 }
 
 void DataBase::Post()
 {
-   WriteData(fs);
-   //Next();
+   cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;
+   WriteData(fsout);
 }
 
-void DataBase::Cancel()
+void DataBase::Readfile()
 {
-   if( fs.is_open() )   Close();
-   //cout << numberOfRecord << endl;
-   fs.open(nameOfFile + ".db", fstream::in | fstream::binary);
-   ReadData(fs);
-   //Close();
+   cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;
+   ReadData(fsin);
+}
+
+void DataBase::Cancel() // пока хуйня перечитываю
+{
+   Close();
+   fsin.open(nameOfFile + ".db", ios::in | ios::binary);
+   
 }
 
 void DataBase::Insert() // goto?? 
 {
-   Edit();
-   fs.seekp(Id()*Size(), ios::beg);
-   numberOfRecord++;
+   //Close();
+   if ( ! fsout.is_open() ) Edit();
+   //numberOfRecord++;    // отдельный метод
    amountOfRecord++;
-   
+   Goto(Count());
 }
 
 void DataBase::Edit()
 {
-   fs.open(nameOfFile + ".db", fstream::out | fstream::binary);
+   fsout.open(nameOfFile + ".db", ios::out | ios::binary);
    
    //Post();
-    if ( ! fs.is_open() )        //Проверка, если файл не открыт...
+    if ( ! fsout.is_open() )        //Проверка, если файл не открыт...
       cout << endl <<"Всё плохо!" << endl;
    else//или
       cout << endl << "Всё хорошо!" << endl;
@@ -112,10 +118,10 @@ void DataBase::Delete()
 
 bool DataBase::Eof()
 {
-   return fs.eof() || Count() == Id();
+   return fsout.eof() || fsin.eof() || Count() == Id();
 }
 
 bool DataBase::Bof()
 {
-   return fs.eof() || Count() == 1;
+   return fsout.eof() || fsin.eof() || Id() == 1;
 }

@@ -19,13 +19,14 @@ int main()
    system("pause");
    
    obj1->Insert();
+   
    obj1->SetName("Ivan");
    obj1->SetAge(13);
    obj1->SetWeight(100);
    obj1->SetHeight(2000);
-   obj1->SetIsIll(false);
+   obj1->SetIsIll(true);
    obj1->Post();
-   
+
    system("pause");
    
    obj1->Insert();
@@ -38,4 +39,49 @@ int main()
    
    system("pause");
    
+   
+   cout << "Count - " << obj1->Count() << endl;
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
+   
+   obj1->Cancel();
+   obj1->First();       // проверка 1 записи
+   obj1->Readfile();
+   
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
+   
+   
+   obj1->Cancel();
+   obj1->Next();       // проверка 1 записи
+   obj1->Readfile();
+   
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
+   
+   
+   obj1->Cancel();
+   obj1->Last();       // проверка последней записи
+   obj1->Readfile();
+   
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
+   
+   
+   obj1->Cancel();
+   obj1->Goto(3);               // произвольное передвижение
+   obj1->Readfile();
+   
+   
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
+   
+   
+   
+   obj1->Cancel();
    _abracadabra_cast(*(obj1));
