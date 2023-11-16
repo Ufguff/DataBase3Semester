@@ -14,10 +14,10 @@ class Patient : public DataBase
    bool isIll;  // болен ли пациент
    
    // определения виртуальных методов класса DataBase
-   //void ReadData(std::fstream& f);
-   //void WriteData(std::fstream& f);
-   void ReadData(std::ifstream& f);
-   void WriteData(std::ofstream& f);
+   void ReadData(std::fstream& f);
+   void WriteData(std::fstream& f);
+   //void ReadData(std::ifstream& f);
+   //void WriteData(std::ofstream& f);
    int Size();
    void Recalc(){}
    

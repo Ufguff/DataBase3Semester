@@ -45,36 +45,37 @@ int main()
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
    
-   obj1->Cancel();
+   
    obj1->First();       // проверка 1 записи
-   obj1->Readfile();
+   obj1->Cancel();
+   //obj1->Readfile();
    
    cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
    
    
-   obj1->Cancel();
+  
    obj1->Next();       // проверка 1 записи
-   obj1->Readfile();
+    obj1->Cancel();
    
    cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
    
    
-   obj1->Cancel();
+   
    obj1->Last();       // проверка последней записи
-   obj1->Readfile();
+   obj1->Cancel();
    
    cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
    
    
-   obj1->Cancel();
+   
    obj1->Goto(2);               // произвольное передвижение
-   obj1->Readfile();
+   obj1->Cancel();
    
    
    cout << obj1->GetName() << endl;
@@ -83,9 +84,8 @@ int main()
    
    
    
-   obj1->Cancel();
    obj1->Prev();               // произвольное передвижение
-   obj1->Readfile();
+   obj1->Cancel();
    
    cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;

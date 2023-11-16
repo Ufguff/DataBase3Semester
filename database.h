@@ -8,10 +8,10 @@
 class DataBase {
 protected:
    // виртуальные методы
-   //virtual void ReadData(std::fstream& f) = 0;
-   //virtual void WriteData(std::fstream& f) = 0;
-   virtual void ReadData(std::ifstream& f) = 0;
-   virtual void WriteData(std::ofstream& f) = 0;
+   virtual void ReadData(std::fstream& f) = 0;
+   virtual void WriteData(std::fstream& f) = 0;
+   //virtual void ReadData(std::ifstream& f) = 0;
+   //virtual void WriteData(std::ofstream& f) = 0;
    virtual int Size() = 0;
    virtual void Recalc() = 0;
 private:
