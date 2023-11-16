@@ -1,19 +1,19 @@
 # database.h patient.h
-!database.cpp cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype database.h errno.h exception fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
-!database.h cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype errno.h exception fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
-!main.cpp cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype database.h errno.h exception initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream patient.h signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
-!patient.cpp cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype database.h errno.h exception fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream patient.h signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
-!patient.h cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype database.h errno.h exception fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
+!database.cpp database.h fstream iostream #<#>
+!database.h fstream iostream #<#>
+!main.cpp database.h iostream patient.h #<#>
+!patient.cpp database.h fstream iostream patient.h #<#>
+!patient.h database.h fstream iostream #<#>
 DataBase _type_ #<database.h>
 Patient _type_ #<patient.h>
 main() -> int #<main.cpp>
+test1() -> void #<main.cpp>
+test2() -> void #<main.cpp>
 	DataBase:%amountOfRecord : long #<database.h>
 	DataBase:%numberOfRecord : long #<database.h>
 	DataBase:%isChangeable : bool #<database.h>
 	DataBase:%nameOfFile : std::string #<database.h>
 	DataBase:%fs : std::fstream #<database.h>
-	DataBase:%fsin : std::ifstream #<database.h>
-	DataBase:%fsout : std::ofstream #<database.h>
 	DataBase:%ReadData : virtual void #<database.h>
 	DataBase:%WriteData : virtual void #<database.h>
 	DataBase:%Size() -> virtual int #<database.h>
@@ -34,7 +34,6 @@ main() -> int #<main.cpp>
 	DataBase::Eof() -> bool #<database.h>
 	DataBase::Bof() -> bool #<database.h>
 	DataBase::Count() -> long #<database.h>
-	DataBase::Readfile() -> void #<database.h>
 	Patient:%name : std::string #<patient.h>
 	Patient:%age : int #<patient.h>
 	Patient:%weight : int #<patient.h>
@@ -65,4 +64,3 @@ main() -> int #<main.cpp>
 	Patient::Eof() -> bool #<patient.h>
 	Patient::Bof() -> bool #<patient.h>
 	Patient::Count() -> long #<patient.h>
-	Patient::Readfile() -> void #<patient.h>

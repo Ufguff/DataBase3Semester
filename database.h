@@ -10,8 +10,6 @@ protected:
    // виртуальные методы
    virtual void ReadData(std::fstream& f) = 0;
    virtual void WriteData(std::fstream& f) = 0;
-   //virtual void ReadData(std::ifstream& f) = 0;
-   //virtual void WriteData(std::ofstream& f) = 0;
    virtual int Size() = 0;
    virtual void Recalc() = 0;
 private:
@@ -20,8 +18,6 @@ private:
    bool isChangeable = false;  // можно ли изменять базу данных
    std::string nameOfFile;     // название файла для работы с ним
    std::fstream fs;  // поток для файла
-   std::ifstream fsin;
-   std::ofstream fsout;
 public:
    DataBase(std::string obj) : nameOfFile(obj) {}  // подумать надо ли строку и параметр какой то 
    ~DataBase(){}
@@ -41,9 +37,6 @@ public:
    bool Eof(); // файл пуст или обнаружен конец файла при выполнении Next() 
    bool Bof(); // файл пуст или обнаружено начало файла при выполнении Prev() 
    long Count();  // количество записей
-   
-   void Readfile();
-   
 };
 
 #endif
