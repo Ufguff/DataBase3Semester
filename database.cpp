@@ -45,36 +45,40 @@ void DataBase::First()
 {
    int id = 1;
    numberOfRecord = 1;
+   cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;        // откладка для перемещения
    Goto(id);
    ReadData(fs);
    cout << is_deleted << endl;
    while(is_deleted != false)        {Goto(id);     ReadData(fs);      id++;}
+   cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;        // откладка для перемещения
    
 }
 
 void DataBase::Next()
 {
    if (!Eof()){
-      int id = numberOfRecord;
+      int id = ++numberOfRecord, count = 0;
+      cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;        // откладка для перемещения
       Goto(id);
       ReadData(fs);
       //cout << is_deleted << endl;
-      while(is_deleted != false)        {Goto(id);  ReadData(fs);     id++; }
+      while(is_deleted != false)        {Goto(id);  ReadData(fs);     id++; count++;}
+      if (count != 0)numberOfRecord--;
    }
-   else {return;}
-   numberOfRecord++;
+ //cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;        // откладка для перемещения
+   
 }
 
 void DataBase::Prev()
 {
    if (!Bof()) {
-      int id = numberOfRecord;
+      int id = --numberOfRecord;
+      cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;        // откладка для перемещения
       Goto(id);
       ReadData(fs);
       while(is_deleted != false)        {Goto(id);  ReadData(fs);     id--;}
+      //numberOfRecord++;
    }
-   else {return;}
-   numberOfRecord--;
 }
 
 void DataBase::Last()
@@ -83,7 +87,7 @@ void DataBase::Last()
    numberOfRecord = Count();
    Goto(id);
    ReadData(fs);
-   while(this->is_deleted != false)        {Goto(id);      id++;}
+   while(is_deleted != false)        {Goto(id);  ReadData(fs);    id++;}
 }
 
 void DataBase::Post()
@@ -91,6 +95,7 @@ void DataBase::Post()
    cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;        // откладка для перемещения
    if(isChangeable)     {
       cout << "da" << endl;
+      Goto(Id());
       WriteData(fs);
    }
 }
@@ -118,18 +123,21 @@ void DataBase::Edit()
 
 void DataBase::Delete()
 {
+   ReadData(fs);
    is_deleted = true;
    Goto(Id());
    WriteData(fs);
    amountOfRecord--;
+   
    cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;
    
-   if ((numberOfRecord - 1) == amountOfRecord)        Prev();
+   if ((numberOfRecord - 1) <= amountOfRecord)        Prev();
    else         Next();
 }
 
 bool DataBase::Eof()
 {
+   cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;
    return fs.eof() || Count() == Id();
 }
 

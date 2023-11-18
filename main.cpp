@@ -1,4 +1,10 @@
 #include "patient.h"
+/*
+Что не работает:
+ - goto c удаленными записями
+
+*/
+
 
 using namespace std;
 
@@ -196,13 +202,29 @@ void test3()
    cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
+   
+   obj1->Next();
+   
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
+   
+   obj1->Prev();
+   
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
+   
 }
 
 int main()
 {
+   
    setlocale(LC_ALL, "ru");
-   //test1();
-   //test2();
+   test1();
+   cout << "--------------------------------------------------------" << endl;
+   test2();
+   cout << "--------------------------------------------------------" << endl;
    test3();
    
    
