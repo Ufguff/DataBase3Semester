@@ -147,11 +147,49 @@ void test2()
    
 }
 
+void test3()
+{
+   Patient *obj1 = new Patient("delProb");
+   obj1->Open();
+   /*
+   obj1->Insert();
+   
+   obj1->SetName("Timofei");
+   obj1->SetAge(19);
+   obj1->SetWeight(65);
+   obj1->SetHeight(190);
+   obj1->SetIsIll(true);
+   obj1->Post();
+   
+   obj1->Insert();
+   
+   obj1->SetName("Ivan");
+   obj1->SetAge(13);
+   obj1->SetWeight(100);
+   obj1->SetHeight(2000);
+   obj1->SetIsIll(true);
+   obj1->Post();
+   */
+   
+   obj1->Last();
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
+   obj1->Delete();
+   
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
+   
+}
+
 int main()
 {
    setlocale(LC_ALL, "ru");
    //test1();
-   test2();
+   //test2();
+   test3();
+   
    
    return 0;
 }

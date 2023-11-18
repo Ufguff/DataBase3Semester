@@ -4,11 +4,15 @@
 
 using namespace std;
 
-// после написани€ основных функций узнать, надо ли каждый раз провер€ть на открытие потока
+// изолировать number и amount, дописать отдельные функции дл€ инкапсул€ции
 
 void DataBase::Open()
 {
-   fs.open (nameOfFile + ".db", std::fstream::in | std::fstream::out | std::fstream::binary | std::fstream::app);       // пошамань с параметрами
+   ifstream check(nameOfFile + ".db");
+   if (! check.is_open())
+      fs.open (nameOfFile + ".db", std::fstream::in | std::fstream::out | std::fstream::binary | fstream::app);
+   else
+      fs.open (nameOfFile + ".db", std::fstream::in | std::fstream::out | std::fstream::binary);
    
    // общее количество записей, если файл уже создан
    fs.seekg(0, ios::end);
@@ -64,8 +68,8 @@ void DataBase::Last()
 }
 
 void DataBase::Post()
-{
-   cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;
+{   
+   //cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;        // откладка дл€ перемещени€
    if(isChangeable)     {
       cout << "da" << endl;
       WriteData(fs);
@@ -76,6 +80,7 @@ void DataBase::Post()
 void DataBase::Cancel() //работает
 {
    //cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;
+   Goto(Id());
    ReadData(fs);
 }
 
@@ -85,7 +90,6 @@ void DataBase::Insert() // goto??
    amountOfRecord++;
    numberOfRecord = amountOfRecord;
    Goto(Count());
-   if(isChangeable)     WriteData(fs);
 }
 
 void DataBase::Edit()
@@ -95,7 +99,23 @@ void DataBase::Edit()
 
 void DataBase::Delete()
 {
+   int ukaz = fs.tellg();
    
+  if (Id() != Count())
+  {
+   for(int )
+  }     
+  else
+  {
+   fs.write((char*)'\0', 100); 
+   fs.write((char*)&age, sizeof(int));
+   fs.write((char*)&weight, sizeof(int));
+   fs.write((char*)&height, sizeof(int));
+   fs.write((char*)&isIll, sizeof(bool));
+   fs.flush();
+
+  }     
+   amountOfRecord--;
 }
 
 bool DataBase::Eof()

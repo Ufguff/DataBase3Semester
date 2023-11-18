@@ -1,142 +1,23 @@
 
 
+
 using namespace std;
 
-void test1()
+int Patient::Size()
 {
-   
-   Patient *obj1 = new Patient("hospital1");
-   obj1->Open();
-   
-   obj1->Insert();
-   
-   obj1->SetName("Timofei");
-   obj1->SetAge(19);
-   obj1->SetWeight(65);
-   obj1->SetHeight(190);
-   obj1->SetIsIll(true);
-   obj1->Post();
-   
-   system("pause");
-   
-   obj1->Insert();
-   
-   obj1->SetName("Ivan");
-   obj1->SetAge(13);
-   obj1->SetWeight(100);
-   obj1->SetHeight(2000);
-   obj1->SetIsIll(true);
-   obj1->Post();
-
-   system("pause");
-   
-   obj1->Insert();
-   obj1->SetName("Sofia");
-   obj1->SetAge(15);
-   obj1->SetWeight(50);
-   obj1->SetHeight(160);
-   obj1->SetIsIll(false);
-   obj1->Post();
-   
-   system("pause");
-   
-   
-   cout << "Count - " << obj1->Count() << endl;
-   cout << obj1->GetName() << endl;
-   cout << obj1->GetAge() << endl;
-   cout << obj1->GetWeight() << endl << endl;
-   
-   
-   obj1->First();       // проверка 1 записи
-   obj1->Cancel();
-
-   
-   cout << obj1->GetName() << endl;
-   cout << obj1->GetAge() << endl;
-   cout << obj1->GetWeight() << endl << endl;
-   
-   
-  
-   obj1->Next();       // проверка 1 записи
-   obj1->Cancel();
-   
-   cout << obj1->GetName() << endl;
-   cout << obj1->GetAge() << endl;
-   cout << obj1->GetWeight() << endl << endl;
-   
-   
-   
-   obj1->Last();       // проверка последней записи
-   obj1->Cancel();
-   
-   cout << obj1->GetName() << endl;
-   cout << obj1->GetAge() << endl;
-   cout << obj1->GetWeight() << endl << endl;
-   
-   
-   
-   obj1->Goto(2);               // произвольное передвижение
-   obj1->Cancel();
-   
-   
-   cout << obj1->GetName() << endl;
-   cout << obj1->GetAge() << endl;
-   cout << obj1->GetWeight() << endl << endl;
-   
-   
-   
-   obj1->Prev();               // произвольное передвижение
-   obj1->Cancel();
-   
-   cout << obj1->GetName() << endl;
-   cout << obj1->GetAge() << endl;
-   cout << obj1->GetWeight() << endl << endl;
-   
-   
-   obj1->Close();
+   return sizeof(int) * 3 + sizeof(bool) + sizeof(char)*100; // максимальна€ длина stirng - 100
 }
 
-
-
-void test2()
+void Patient::ReadData(fstream &f)
 {
-   Patient *obj1 = new Patient("changeN");
-   obj1->Open();
+   size_t len = 100;
+   char buf[len + 1];         // ¬ыделение буфера дл€ чтени€
+   f.read(buf, len);                   // „тение (с нулевым байтом)
+   buf[len] = 0;
+   name = buf;                         // ѕрисвоение считанной строки члену
    
-   obj1->Insert();
-   
-   obj1->SetName("Timofei");
-   obj1->SetAge(19);
-   obj1->SetWeight(65);
-   obj1->SetHeight(190);
-   obj1->SetIsIll(true);
-   obj1->Post();
-   
-   obj1->Insert();
-   
-   obj1->SetName("Ivan");
-   obj1->SetAge(13);
-   obj1->SetWeight(100);
-   obj1->SetHeight(2000);
-   obj1->SetIsIll(true);
-   obj1->Post();
-
-
-   obj1->First();
-   
-   cout << obj1->GetName() << endl;
-   cout << obj1->GetAge() << endl;
-   cout << obj1->GetWeight() << endl << endl;
-   
-   obj1->SetName("Sofia");
-   obj1->SetAge(15);
-   obj1->SetWeight(50);
-   obj1->SetHeight(160);
-   obj1->SetIsIll(false);
-   
-   cout << obj1->GetName() << endl;
-   cout << obj1->GetAge() << endl;
-   cout << obj1->GetWeight() << endl << endl;
-   
-   obj1->Post();
-   _abracadabra_cast(*(obj1));
+   f.read((char*)&age, sizeof(int));
+   f.read((char*)&weight, sizeof(int));
+   f.read((char*)&height, sizeof(int));
+   f.read((char*)&isIll, sizeof(bool));
+   _abracadabra_cast(f);

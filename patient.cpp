@@ -20,6 +20,7 @@ void Patient::ReadData(fstream &f)
    f.read((char*)&weight, sizeof(int));
    f.read((char*)&height, sizeof(int));
    f.read((char*)&isIll, sizeof(bool));
+   f.flush();
 }
 
 void Patient::WriteData(fstream &f)
@@ -29,4 +30,5 @@ void Patient::WriteData(fstream &f)
    f.write((char*)&weight, sizeof(int));
    f.write((char*)&height, sizeof(int));
    f.write((char*)&isIll, sizeof(bool));
+   f.flush();
 }
