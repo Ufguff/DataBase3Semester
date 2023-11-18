@@ -19,6 +19,7 @@ test3() -> void #<main.cpp>
 	DataBase:%WriteData : virtual void #<database.h>
 	DataBase:%Size() -> virtual int #<database.h>
 	DataBase:%Recalc() -> virtual void #<database.h>
+	DataBase:%is_deleted : bool #<database.h>
 	DataBase::DataBase :  #<database.h>
 	DataBase::Close() -> void #<database.h>
 	DataBase::Id() -> long #<database.h>
@@ -48,6 +49,7 @@ test3() -> void #<main.cpp>
 	Patient:%WriteData : virtual void #<patient.h>
 	Patient:%Size() -> virtual int #<patient.h>
 	Patient:%Recalc() -> virtual void #<patient.h>
+	Patient:%is_deleted : bool #<patient.h>
 	Patient::Patient :  #<patient.h>
 	Patient::DataBase :  #<patient.h>
 	Patient::Close() -> void #<patient.h>

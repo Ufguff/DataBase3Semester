@@ -11,8 +11,9 @@ void DataBase::Open()
    ifstream check(nameOfFile + ".db");
    if (! check.is_open())
       fs.open (nameOfFile + ".db", std::fstream::in | std::fstream::out | std::fstream::binary | fstream::app);
-   else
-      fs.open (nameOfFile + ".db", std::fstream::in | std::fstream::out | std::fstream::binary);
+   
+   Close();
+   fs.open (nameOfFile + ".db", std::fstream::in | std::fstream::out | std::fstream::binary);
    
    // общее количество записей, если файл уже создан
    fs.seekg(0, ios::end);
@@ -42,34 +43,52 @@ void DataBase::Goto(long id)
 
 void DataBase::First()
 {
+   int id = 1;
    numberOfRecord = 1;
-   Goto(Id());
+   Goto(id);
+   ReadData(fs);
+   cout << is_deleted << endl;
+   while(is_deleted != false)        {Goto(id);     ReadData(fs);      id++;}
+   
 }
 
 void DataBase::Next()
 {
    if (!Eof()){
-      numberOfRecord++;
-      Goto(Id());
+      int id = numberOfRecord;
+      Goto(id);
+      ReadData(fs);
+      //cout << is_deleted << endl;
+      while(is_deleted != false)        {Goto(id);  ReadData(fs);     id++; }
    }
+   else {return;}
+   numberOfRecord++;
 }
 
 void DataBase::Prev()
 {
    if (!Bof()) {
-      numberOfRecord--;
-      fs.seekg((Id() - 1) * Size(), ios::beg);
+      int id = numberOfRecord;
+      Goto(id);
+      ReadData(fs);
+      while(is_deleted != false)        {Goto(id);  ReadData(fs);     id--;}
    }
+   else {return;}
+   numberOfRecord--;
 }
 
 void DataBase::Last()
 {
-   Goto(Count());
+   int id = Count();
+   numberOfRecord = Count();
+   Goto(id);
+   ReadData(fs);
+   while(this->is_deleted != false)        {Goto(id);      id++;}
 }
 
 void DataBase::Post()
 {   
-   //cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;        // откладка для перемещения
+   cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;        // откладка для перемещения
    if(isChangeable)     {
       cout << "da" << endl;
       WriteData(fs);
@@ -79,7 +98,7 @@ void DataBase::Post()
 
 void DataBase::Cancel() //работает
 {
-   //cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;
+   cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;
    Goto(Id());
    ReadData(fs);
 }
@@ -99,23 +118,14 @@ void DataBase::Edit()
 
 void DataBase::Delete()
 {
-   int ukaz = fs.tellg();
-   
-  if (Id() != Count())
-  {
-   for(int )
-  }     
-  else
-  {
-   fs.write((char*)'\0', 100); 
-   fs.write((char*)&age, sizeof(int));
-   fs.write((char*)&weight, sizeof(int));
-   fs.write((char*)&height, sizeof(int));
-   fs.write((char*)&isIll, sizeof(bool));
-   fs.flush();
-
-  }     
+   is_deleted = true;
+   Goto(Id());
+   WriteData(fs);
    amountOfRecord--;
+   cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;
+   
+   if ((numberOfRecord - 1) == amountOfRecord)        Prev();
+   else         Next();
 }
 
 bool DataBase::Eof()

@@ -151,7 +151,7 @@ void test3()
 {
    Patient *obj1 = new Patient("delProb");
    obj1->Open();
-   /*
+   
    obj1->Insert();
    
    obj1->SetName("Timofei");
@@ -169,9 +169,19 @@ void test3()
    obj1->SetHeight(2000);
    obj1->SetIsIll(true);
    obj1->Post();
-   */
    
-   obj1->Last();
+   
+   obj1->Insert();
+   obj1->SetName("Sofia");
+   obj1->SetAge(15);
+   obj1->SetWeight(50);
+   obj1->SetHeight(160);
+   obj1->SetIsIll(false);
+   obj1->Post();
+   
+   // перезаписывается удалённая запись
+ 
+   obj1->Goto(2);
    cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
@@ -180,7 +190,12 @@ void test3()
    cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
+ 
+   obj1->Next();
    
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
 }
 
 int main()

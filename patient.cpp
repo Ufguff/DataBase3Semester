@@ -5,11 +5,13 @@ using namespace std;
 
 int Patient::Size()
 {
-   return sizeof(int) * 3 + sizeof(bool) + sizeof(char)*100; // максимальная длина stirng - 100
+   return sizeof(int) * 3 + sizeof(bool)*2 + sizeof(char)*100; // максимальная длина stirng - 100
 }
 
 void Patient::ReadData(fstream &f)
 {
+   f.read((char*)&is_deleted, sizeof(bool));
+   
    size_t len = 100;
    char buf[len + 1];         // Выделение буфера для чтения
    f.read(buf, len);                   // Чтение (с нулевым байтом)
@@ -25,6 +27,7 @@ void Patient::ReadData(fstream &f)
 
 void Patient::WriteData(fstream &f)
 {
+   f.write((char*)&is_deleted, sizeof(bool));
    f.write((char*)name.c_str(), 100); 
    f.write((char*)&age, sizeof(int));
    f.write((char*)&weight, sizeof(int));
