@@ -19,13 +19,14 @@ private:
    bool isChangeable = false;  // можно ли изменять базу данных
    std::string nameOfFile;     // название файла для работы с ним
    std::fstream fs;  // поток для файла
+   void GotoInProg(long id); // перейти на запись с идентификатором id (для функций библиотеки)
 public:
    DataBase(std::string obj) : nameOfFile(obj) {}  // подумать надо ли строку и параметр какой то 
    ~DataBase(){}
    void Open();
    void Close();
    long Id(); // идентификатор записи (смещение в файле)
-   void Goto(long id); // перейти на запись с идентификатором id
+   void Goto(long id);  // перейти на запись с идентификатором id 
    void First(); // перейти на первую запись в файле
    void Next(); // перейти на следующую запись в файле
    void Prev(); // перейти на предыдущую запись в файле
@@ -38,6 +39,7 @@ public:
    bool Eof(); // файл пуст или обнаружен конец файла при выполнении Next() 
    bool Bof(); // файл пуст или обнаружено начало файла при выполнении Prev() 
    long Count();  // количество записей
+   
 };
 
 #endif

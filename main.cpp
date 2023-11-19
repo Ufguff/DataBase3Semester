@@ -1,17 +1,12 @@
 #include "patient.h"
-/*
-„то не работает:
- - goto c удаленными запис€ми
-
-*/
 
 
 using namespace std;
 
-void test1()
+void test1()    // тест добавлени€ и перемещени€ по файлу (до реализации удалЄнной записи)
 {
    
-   Patient *obj1 = new Patient("hospital1");
+   Patient *obj1 = new Patient("1");
    obj1->Open();
    
    obj1->Insert();
@@ -104,9 +99,9 @@ void test1()
 
 
 
-void test2()
+void test2()    // перезапись записи
 {
-   Patient *obj1 = new Patient("changeN");
+   Patient *obj1 = new Patient("2");
    obj1->Open();
    
    obj1->Insert();
@@ -153,9 +148,9 @@ void test2()
    
 }
 
-void test3()
+void test3()    // тест удалЄнной записи и перемешени€ с удаленной записью
 {
-   Patient *obj1 = new Patient("delProb");
+   Patient *obj1 = new Patient("3");
    obj1->Open();
    
    obj1->Insert();
@@ -217,15 +212,89 @@ void test3()
    
 }
 
+
+void test4()    // тест goto с удалЄнными запис€ми
+{
+   Patient *obj1 = new Patient("4");
+   obj1->Open();
+   
+   obj1->Insert();
+   
+   obj1->SetName("Timofei");
+   obj1->SetAge(19);
+   obj1->SetWeight(65);
+   obj1->SetHeight(190);
+   obj1->SetIsIll(true);
+   obj1->Post();
+   
+   obj1->Insert();
+   
+   obj1->SetName("Ivan");
+   obj1->SetAge(13);
+   obj1->SetWeight(100);
+   obj1->SetHeight(2000);
+   obj1->SetIsIll(true);
+   obj1->Post();
+   
+   
+   obj1->Insert();
+   obj1->SetName("Sofia");
+   obj1->SetAge(15);
+   obj1->SetWeight(50);
+   obj1->SetHeight(160);
+   obj1->SetIsIll(false);
+   obj1->Post();
+   
+   obj1->Insert();
+   obj1->SetName("Mark");
+   obj1->SetAge(18);
+   obj1->SetWeight(60);
+   obj1->SetHeight(180);
+   obj1->SetIsIll(true);
+   obj1->Post();
+   
+   system("pause");
+   
+   obj1->Prev();
+   
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
+   
+   
+   obj1->Delete();      // удаление 3 записи
+   //obj1->Prev();      не ставим предыдущий потому что Delete автоматически переносит запись на -1 (когда же это перва€ запись Delete идЄт вперед)
+   obj1->Delete();      // удаление 2 записи
+   
+   obj1->First();
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
+   
+   obj1->Goto(2);
+   //obj1->Next();
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
+   
+   cout << obj1->Id() << endl;
+   
+   obj1->Close();
+}
+
+
 int main()
 {
    
    setlocale(LC_ALL, "ru");
+   
    test1();
    cout << "--------------------------------------------------------" << endl;
    test2();
    cout << "--------------------------------------------------------" << endl;
    test3();
+   cout << "--------------------------------------------------------" << endl;
+   test4();
    
    
    return 0;

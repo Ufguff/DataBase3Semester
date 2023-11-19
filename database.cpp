@@ -1,19 +1,29 @@
 #include <fstream>
 #include <iostream>
+#include <filesystem>
 #include "database.h"
-
 using namespace std;
+
+void PrintNums(int m, int n)
+{
+   cout << m << "- num | amout - " << n << endl;        // откладка для перемещения
+}
+
+
+
 
 // изолировать number и amount, дописать отдельные функции для инкапсуляции
 
 void DataBase::Open()
 {
-   ifstream check(nameOfFile + ".db");
+   string path = filesystem::current_path().string() + "\\DataBases\\" + nameOfFile + ".db";    // создание папки если нет
+
+   ifstream check(path);
    if (! check.is_open())
-      fs.open (nameOfFile + ".db", std::fstream::in | std::fstream::out | std::fstream::binary | fstream::app);
+      fs.open (path, std::fstream::in | std::fstream::out | std::fstream::binary | fstream::app);
    
    Close();
-   fs.open (nameOfFile + ".db", std::fstream::in | std::fstream::out | std::fstream::binary);
+   fs.open (path, std::fstream::in | std::fstream::out | std::fstream::binary);
    
    // общее количество записей, если файл уже создан
    fs.seekg(0, ios::end);
@@ -35,22 +45,30 @@ long DataBase::Count()
    return amountOfRecord;
 }
 
+void DataBase::GotoInProg(long id)
+{
+   numberOfRecord = id;
+   fs.seekg((id - 1)*Size(), ios::beg);
+}
+
 void DataBase::Goto(long id)
 {
    numberOfRecord = id;
    fs.seekg((id - 1)*Size(), ios::beg);
+   ReadData(fs);
+   while(is_deleted != false)      ReadData(fs);
 }
 
 void DataBase::First()
 {
    int id = 1;
    numberOfRecord = 1;
-   cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;        // откладка для перемещения
-   Goto(id);
+   PrintNums(numberOfRecord, amountOfRecord);         //
+   GotoInProg(id);
    ReadData(fs);
    cout << is_deleted << endl;
-   while(is_deleted != false)        {Goto(id);     ReadData(fs);      id++;}
-   cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;        // откладка для перемещения
+   while(is_deleted != false)        {GotoInProg(id);     ReadData(fs);      id++;}
+   PrintNums(numberOfRecord, amountOfRecord);         //
    
 }
 
@@ -58,26 +76,24 @@ void DataBase::Next()
 {
    if (!Eof()){
       int id = ++numberOfRecord, count = 0;
-      cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;        // откладка для перемещения
-      Goto(id);
+      PrintNums(numberOfRecord, amountOfRecord);         //
+      GotoInProg(id);
       ReadData(fs);
-      //cout << is_deleted << endl;
-      while(is_deleted != false)        {Goto(id);  ReadData(fs);     id++; count++;}
+      while(is_deleted != false)        {GotoInProg(id);  ReadData(fs);     id++; count++;}
       if (count != 0)numberOfRecord--;
    }
- //cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;        // откладка для перемещения
-   
+PrintNums(numberOfRecord, amountOfRecord);         //   
 }
 
 void DataBase::Prev()
 {
    if (!Bof()) {
-      int id = --numberOfRecord;
-      cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;        // откладка для перемещения
-      Goto(id);
+      int id = --numberOfRecord, count = 0;
+      PrintNums(numberOfRecord, amountOfRecord);         //
+      GotoInProg(id);
       ReadData(fs);
-      while(is_deleted != false)        {Goto(id);  ReadData(fs);     id--;}
-      //numberOfRecord++;
+      while(is_deleted != false)        {GotoInProg(id);  ReadData(fs);     id--; count++;}
+      if (count != 0)   numberOfRecord++;
    }
 }
 
@@ -85,17 +101,17 @@ void DataBase::Last()
 {
    int id = Count();
    numberOfRecord = Count();
-   Goto(id);
+   GotoInProg(id);
    ReadData(fs);
-   while(is_deleted != false)        {Goto(id);  ReadData(fs);    id++;}
+   while(is_deleted != false)        {GotoInProg(id);  ReadData(fs);    id++;}
 }
 
 void DataBase::Post()
 {   
-   cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;        // откладка для перемещения
+   PrintNums(numberOfRecord, amountOfRecord);         //
    if(isChangeable)     {
       cout << "da" << endl;
-      Goto(Id());
+      GotoInProg(Id());
       WriteData(fs);
    }
 }
@@ -103,8 +119,8 @@ void DataBase::Post()
 
 void DataBase::Cancel() //работает
 {
-   cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;
-   Goto(Id());
+   PrintNums(numberOfRecord, amountOfRecord);         //
+   GotoInProg(Id());
    ReadData(fs);
 }
 
@@ -113,7 +129,7 @@ void DataBase::Insert() // goto??
    Edit();      // надо разобраться когда отключать и включать
    amountOfRecord++;
    numberOfRecord = amountOfRecord;
-   Goto(Count());
+   GotoInProg(Count());
 }
 
 void DataBase::Edit()
@@ -123,13 +139,15 @@ void DataBase::Edit()
 
 void DataBase::Delete()
 {
-   ReadData(fs);
+   PrintNums(numberOfRecord, amountOfRecord); cout << "del" << endl;         //
+   // проблема в 4 тесте - удаленные записи (3 и 4) имеют данные 4 записи
+   //ReadData(fs);      это решает проблему так как мы уже прочитали запись, нужно больше отладить
    is_deleted = true;
-   Goto(Id());
+   GotoInProg(Id());
    WriteData(fs);
    amountOfRecord--;
    
-   cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;
+   PrintNums(numberOfRecord, amountOfRecord);         //
    
    if ((numberOfRecord - 1) <= amountOfRecord)        Prev();
    else         Next();
@@ -137,7 +155,6 @@ void DataBase::Delete()
 
 bool DataBase::Eof()
 {
-   cout << numberOfRecord << "-num | amout" << amountOfRecord << endl;
    return fs.eof() || Count() == Id();
 }
 

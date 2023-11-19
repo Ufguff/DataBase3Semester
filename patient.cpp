@@ -6,6 +6,7 @@ using namespace std;
 int Patient::Size()
 {
    return sizeof(int) * 3 + sizeof(bool)*2 + sizeof(char)*100; // максимальная длина stirng - 100
+   // всего запись весит 114 битов, для наглядности воспользоваться hex редактором
 }
 
 void Patient::ReadData(fstream &f)
