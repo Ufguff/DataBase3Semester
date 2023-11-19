@@ -7,6 +7,7 @@
 DataBase _type_ #<database.h>
 Patient _type_ #<patient.h>
 PrintNums(int m, int n) -> void #<database.cpp>
+debugOn : bool #<database.cpp>
 main() -> int #<main.cpp>
 test1() -> void #<main.cpp>
 test2() -> void #<main.cpp>

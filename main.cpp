@@ -18,7 +18,7 @@ void test1()    // тест добавления и перемещения по файлу (до реализации удалённ
    obj1->SetIsIll(true);
    obj1->Post();
    
-   system("pause");
+  // system("pause");
    
    obj1->Insert();
    
@@ -29,7 +29,7 @@ void test1()    // тест добавления и перемещения по файлу (до реализации удалённ
    obj1->SetIsIll(true);
    obj1->Post();
 
-   system("pause");
+   //system("pause");
    
    obj1->Insert();
    obj1->SetName("Sofia");
@@ -39,7 +39,7 @@ void test1()    // тест добавления и перемещения по файлу (до реализации удалённ
    obj1->SetIsIll(false);
    obj1->Post();
    
-   system("pause");
+  // system("pause");
    
    
    cout << "Count - " << obj1->Count() << endl;
@@ -253,7 +253,7 @@ void test4()    // тест goto с удалёнными записями
    obj1->SetIsIll(true);
    obj1->Post();
    
-   system("pause");
+   //system("pause");
    
    obj1->Prev();
    
@@ -277,7 +277,6 @@ void test4()    // тест goto с удалёнными записями
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
    
-   cout << obj1->Id() << endl;
    
    obj1->Close();
 }

@@ -4,9 +4,15 @@
 #include "database.h"
 using namespace std;
 
+
+
+bool debugOn = false;    // true - включает вывод текущей записи и всех записей | false - отключает данную возможность
+
+
+
 void PrintNums(int m, int n)
 {
-   cout << m << "- num | amout - " << n << endl;        // откладка для перемещения
+   if (debugOn) cout << m << "- num | amout - " << n << endl;        // откладка для перемещения
 }
 
 
@@ -66,7 +72,6 @@ void DataBase::First()
    PrintNums(numberOfRecord, amountOfRecord);         //
    GotoInProg(id);
    ReadData(fs);
-   cout << is_deleted << endl;
    while(is_deleted != false)        {GotoInProg(id);     ReadData(fs);      id++;}
    PrintNums(numberOfRecord, amountOfRecord);         //
    
@@ -110,7 +115,6 @@ void DataBase::Post()
 {   
    PrintNums(numberOfRecord, amountOfRecord);         //
    if(isChangeable)     {
-      cout << "da" << endl;
       GotoInProg(Id());
       WriteData(fs);
    }
@@ -139,7 +143,8 @@ void DataBase::Edit()
 
 void DataBase::Delete()
 {
-   PrintNums(numberOfRecord, amountOfRecord); cout << "del" << endl;         //
+   PrintNums(numberOfRecord, amountOfRecord);   //
+   if (debugOn)cout << "del" << endl;         //
    // проблема в 4 тесте - удаленные записи (3 и 4) имеют данные 4 записи
    //ReadData(fs);      это решает проблему так как мы уже прочитали запись, нужно больше отладить
    is_deleted = true;
