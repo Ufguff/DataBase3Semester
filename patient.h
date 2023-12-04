@@ -12,6 +12,7 @@ class Patient : public DataBase
    int weight;	//  вес пациента (измерения проходят в килограммах)
    int height;	// рост пациента (измерения проходят в сантиметрах)
    bool isIll;  // болен ли пациент
+   //std::string nameOfClass = 
    
    // определения виртуальных методов класса DataBase
    void ReadData(std::fstream& f);
@@ -20,7 +21,7 @@ class Patient : public DataBase
    void Recalc(){}
    
 public:
-   Patient(std::string filename) : DataBase(filename) {}
+   Patient(std::string filename) : DataBase(filename, "Patient") {}
    
    void SetName(std::string t)  {name = t;}
    std::string GetName()        {return name;}

@@ -13,17 +13,26 @@ test1() -> void #<main.cpp>
 test2() -> void #<main.cpp>
 test3() -> void #<main.cpp>
 test4() -> void #<main.cpp>
+test5() -> void #<main.cpp>
+test6() -> void #<main.cpp>
 	DataBase:%amountOfRecord : long #<database.h>
 	DataBase:%numberOfRecord : long #<database.h>
 	DataBase:%isChangeable : bool #<database.h>
+	DataBase:%false : boolisInserted= #<database.h>
 	DataBase:%nameOfFile : std::string #<database.h>
 	DataBase:%fs : std::fstream #<database.h>
 	DataBase:%GotoInProg(long id) -> void #<database.h>
+	DataBase:%lastRecord : int #<database.h>
+	DataBase:%EofF : bool #<database.h>
+	DataBase:%BofF : bool #<database.h>
+	DataBase:%is_deleted : bool #<database.h>
+	DataBase:%SizeTitle() -> int #<database.h>
+	DataBase:%predRecord : int #<database.h>
 	DataBase:%ReadData : virtual void #<database.h>
 	DataBase:%WriteData : virtual void #<database.h>
 	DataBase:%Size() -> virtual int #<database.h>
 	DataBase:%Recalc() -> virtual void #<database.h>
-	DataBase:%is_deleted : bool #<database.h>
+	DataBase:%nameOfClass : std::string #<database.h>
 	DataBase::DataBase :  #<database.h>
 	DataBase::Close() -> void #<database.h>
 	DataBase::Id() -> long #<database.h>
@@ -40,6 +49,10 @@ test4() -> void #<main.cpp>
 	DataBase::Eof() -> bool #<database.h>
 	DataBase::Bof() -> bool #<database.h>
 	DataBase::Count() -> long #<database.h>
+	DataBase::WriteDelete : void #<database.h>
+	DataBase::ReadDelete : bool #<database.h>
+	DataBase::WriteTitle : void #<database.h>
+	DataBase::ReadTitle : void #<database.h>
 	Patient:%name : std::string #<patient.h>
 	Patient:%age : int #<patient.h>
 	Patient:%weight : int #<patient.h>
@@ -53,7 +66,7 @@ test4() -> void #<main.cpp>
 	Patient:%WriteData : virtual void #<patient.h>
 	Patient:%Size() -> virtual int #<patient.h>
 	Patient:%Recalc() -> virtual void #<patient.h>
-	Patient:%is_deleted : bool #<patient.h>
+	Patient:%nameOfClass : std::string #<patient.h>
 	Patient::Patient :  #<patient.h>
 	Patient::DataBase :  #<patient.h>
 	Patient::Close() -> void #<patient.h>
@@ -71,3 +84,7 @@ test4() -> void #<main.cpp>
 	Patient::Eof() -> bool #<patient.h>
 	Patient::Bof() -> bool #<patient.h>
 	Patient::Count() -> long #<patient.h>
+	Patient::WriteDelete : void #<patient.h>
+	Patient::ReadDelete : bool #<patient.h>
+	Patient::WriteTitle : void #<patient.h>
+	Patient::ReadTitle : void #<patient.h>

@@ -1,0 +1,154 @@
+1- num | amout - 1
+2- num | amout - 2
+3- num | amout - 3
+Count - 3
+Sofia
+15
+50
+
+1- num | amout - 3
+1- num | amout - 3
+Timofei
+19
+65
+
+2- num | amout - 3
+2- num | amout - 3
+Ivan
+13
+100
+
+Sofia
+15
+50
+
+Ivan
+13
+100
+
+1- num | amout - 3
+Timofei
+19
+65
+
+--------------------------------------------------------
+C:\Users\Ufgufff\Desktop\DataBase3Semester\DataBases\2.db
+1- num | amout - 1
+2- num | amout - 2
+1- num | amout - 2
+1- num | amout - 2
+Timofei
+19
+65
+
+Sofia
+15
+50
+
+1- num | amout - 2
+Sofia
+15
+50
+
+--------------------------------------------------------
+C:\Users\Ufgufff\Desktop\DataBase3Semester\DataBases\3.db
+1- num | amout - 1
+2- num | amout - 2
+3- num | amout - 3
+Ivan
+13
+100
+
+2- num | amout - 3
+del
+2- num | amout - 2
+1- num | amout - 2
+Timofei
+19
+65
+
+2- num | amout - 2
+2- num | amout - 2
+Sofia
+15
+50
+
+2- num | amout - 2
+Sofia
+15
+50
+
+1- num | amout - 2
+Timofei
+19
+65
+
+--------------------------------------------------------
+C:\Users\Ufgufff\Desktop\DataBase3Semester\DataBases\4.db
+1- num | amout - 1
+2- num | amout - 2
+3- num | amout - 3
+4- num | amout - 4
+3- num | amout - 4
+Sofia
+15
+50
+
+3- num | amout - 4
+del
+3- num | amout - 3
+2- num | amout - 3
+2- num | amout - 3
+del
+2- num | amout - 2
+1- num | amout - 2
+1- num | amout - 2
+1- num | amout - 2
+Timofei
+19
+65
+
+2- num | amout - 2
+3- num | amout - 2
+Mark
+18
+60
+
+Mark
+18
+60
+
+--------------------------------------------------------
+C:\Users\Ufgufff\Desktop\DataBase3Semester\DataBases\5.db
+1- num | amout - 1
+1- num | amout - 1
+Timofei
+19
+65
+
+1- num | amout - 1
+del
+1- num | amout - 0
+0- num | amout - 0
+--------------------------------------------------------
+C:\Users\Ufgufff\Desktop\DataBase3Semester\DataBases\6.db
+1- num | amout - 1
+Timofei
+19
+65
+
+2- num | amout - 2
+Ivan
+13
+100
+
+3- num | amout - 3
+Sofia
+15
+50
+
+1- num | amout - 3
+1- num | amout - 3
+Timofei
+19
+65

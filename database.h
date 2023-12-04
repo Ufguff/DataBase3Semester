@@ -12,16 +12,23 @@ protected:
    virtual void WriteData(std::fstream& f) = 0;
    virtual int Size() = 0;
    virtual void Recalc() = 0;
-   bool is_deleted = false;
+   std::string nameOfClass;
+   
 private:
    long amountOfRecord = 0;    // суммарное количество записей
    long numberOfRecord = 0;    // текущая запись
-   bool isChangeable = false;  // можно ли изменять базу данных
+   bool isChangeable = false, isInserted = false;  // для Edit() | для Insert()
    std::string nameOfFile;     // название файла для работы с ним
    std::fstream fs;  // поток для файла
    void GotoInProg(long id); // перейти на запись с идентификатором id (для функций библиотеки)
+   int lastRecord = 0;
+   bool EofF, BofF;
+   bool is_deleted;
+   int SizeTitle();
+   
+   int predRecord;
 public:
-   DataBase(std::string obj) : nameOfFile(obj) {}  // подумать надо ли строку и параметр какой то 
+   DataBase(std::string obj, std::string nOfClass) : nameOfFile(obj), nameOfClass(nOfClass) {}  // подумать надо ли строку и параметр какой то 
    ~DataBase(){}
    void Open();
    void Close();
@@ -40,6 +47,11 @@ public:
    bool Bof(); // файл пуст или обнаружено начало файла при выполнении Prev() 
    long Count();  // количество записей
    
+   void WriteDelete(std::fstream& fs, bool is_del);
+   bool ReadDelete(std::fstream& fs);
+   
+   void WriteTitle(std::fstream& fs);
+   void ReadTitle(std::fstream& fs);
 };
 
 #endif

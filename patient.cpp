@@ -3,15 +3,17 @@
 #include <fstream>
 using namespace std;
 
+// удалена или нет нужно реализовать через database и отдельно
+
 int Patient::Size()
 {
-   return sizeof(int) * 3 + sizeof(bool)*2 + sizeof(char)*100; // максимальна€ длина stirng - 100
+   return sizeof(int) * 3 + sizeof(bool) + sizeof(char)*100; // максимальна€ длина stirng - 100
    // всего запись весит 114 байтов, дл€ нагл€дности воспользоватьс€ hex редактором
 }
 
 void Patient::ReadData(fstream &f)
 {
-   f.read((char*)&is_deleted, sizeof(bool));
+   //f.read((char*)&is_deleted, sizeof(bool));
    
    size_t len = 100;
    char buf[len + 1];         // ¬ыделение буфера дл€ чтени€
@@ -28,7 +30,7 @@ void Patient::ReadData(fstream &f)
 
 void Patient::WriteData(fstream &f)
 {
-   f.write((char*)&is_deleted, sizeof(bool));
+   //f.write((char*)&is_deleted, sizeof(bool));
    f.write((char*)name.c_str(), 100); 
    f.write((char*)&age, sizeof(int));
    f.write((char*)&weight, sizeof(int));
@@ -36,3 +38,4 @@ void Patient::WriteData(fstream &f)
    f.write((char*)&isIll, sizeof(bool));
    f.flush();
 }
+
