@@ -14,6 +14,8 @@ protected:
    virtual void Recalc() = 0;
    std::string nameOfClass;
    
+
+   
 private:
    long amountOfRecord = 0;    // суммарное количество записей
    long numberOfRecord = 0;    // текущая запись
@@ -24,9 +26,14 @@ private:
    int lastRecord = 0;
    bool EofF, BofF;
    bool is_deleted;
-   int SizeTitle();
    
-   int predRecord;
+
+   void WriteDelete(std::fstream& fs, bool is_del);
+   bool ReadDelete(std::fstream& fs);
+   
+   void WriteTitle(std::fstream& fs);
+   void ReadTitle(std::fstream& fs);
+   
 public:
    DataBase(std::string obj, std::string nOfClass) : nameOfFile(obj), nameOfClass(nOfClass) {}  // подумать надо ли строку и параметр какой то 
    ~DataBase(){}
@@ -46,12 +53,5 @@ public:
    bool Eof(); // файл пуст или обнаружен конец файла при выполнении Next() 
    bool Bof(); // файл пуст или обнаружено начало файла при выполнении Prev() 
    long Count();  // количество записей
-   
-   void WriteDelete(std::fstream& fs, bool is_del);
-   bool ReadDelete(std::fstream& fs);
-   
-   void WriteTitle(std::fstream& fs);
-   void ReadTitle(std::fstream& fs);
 };
-
 #endif

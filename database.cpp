@@ -6,6 +6,7 @@ using namespace std;
 
 bool debugOn = false;    // true - включает вывод текущей записи и всех записей | false - отключает данную возможность
 
+constexpr int SizeTitle = sizeof(int)*2 + sizeof(char)*15;
 
 void PrintNums(int m, int n)
 {
@@ -60,33 +61,48 @@ long DataBase::Count()
 
 void DataBase::GotoInProg(long id)
 {
-   numberOfRecord = id;
-   fs.seekg((id - 1)*Size() + SizeTitle() + sizeof(bool)*(id - 1), ios::beg);
+
+   fs.seekg((id - 1)*(Size() + sizeof(bool)) + SizeTitle, ios::beg);
 }
 
 void DataBase::Goto(long id)
 {
+   numberOfRecord = id;
    GotoInProg(id);
    is_deleted = ReadDelete(fs);
    ReadData(fs);
    while(is_deleted != false)      {is_deleted = ReadDelete(fs);        ReadData(fs);}
    
+   /*
    if (amountOfRecord == numberOfRecord) {BofF = true; EofF = false;}
    else if (1 == numberOfRecord)        {BofF = false; EofF = true;}
    else {BofF = true; EofF = true;}
+   */
+   
+   // если не существует то искл ситуация
+
    
 }
 
 void DataBase::First()
 {
-   
    int id = 1;
    numberOfRecord = 1;
    PrintNums(numberOfRecord, amountOfRecord);         //
+   /*
    GotoInProg(id);
    is_deleted = ReadDelete(fs);
    ReadData(fs);
    while(is_deleted != false)        {GotoInProg(id);       is_deleted = ReadDelete(fs);     ReadData(fs);      id++;}
+   */
+   
+   do
+   {
+      GotoInProg(id);
+      is_deleted = ReadDelete(fs);
+      id++;
+   }while(is_deleted);
+   ReadData(fs);
    
    BofF = false; EofF = true;
    
@@ -99,11 +115,23 @@ void DataBase::Next()
    if (Eof()){
       int id = ++numberOfRecord, count = 0;
       PrintNums(numberOfRecord, amountOfRecord);         //
+      /*
       GotoInProg(id);
       is_deleted = ReadDelete(fs);
       ReadData(fs);
       while(is_deleted != false)        {GotoInProg(id);       is_deleted = ReadDelete(fs);  ReadData(fs);     id++; count++;}
       if (count != 0)numberOfRecord--;
+      */
+      //numberOfRecord = id;
+      do
+      {
+         GotoInProg(id);
+         is_deleted = ReadDelete(fs);
+         id++;
+      }while(is_deleted);
+      ReadData(fs);
+      
+      //numberOfRecord++;
       
       if (amountOfRecord == numberOfRecord) {BofF = true; EofF = false;}
       else {BofF = true; EofF = true;}
@@ -117,11 +145,22 @@ void DataBase::Prev()
    if (Bof()) {
       int id = --numberOfRecord, count = 0;
       PrintNums(numberOfRecord, amountOfRecord);         //
+      /*
       GotoInProg(id);
       is_deleted = ReadDelete(fs);
       ReadData(fs);
       while(is_deleted != false)        {GotoInProg(id);       is_deleted = ReadDelete(fs);  ReadData(fs);     id--; count++;}
       if (count != 0)   numberOfRecord++;
+      */
+      do
+      {
+         GotoInProg(id);
+         is_deleted = ReadDelete(fs);
+         id--;
+      }while(is_deleted);
+      ReadData(fs);
+      
+      //numberOfRecord--;
       
       if (1 == numberOfRecord) {BofF = false; EofF = true;}
       else {BofF = true; EofF = true;}
@@ -132,10 +171,20 @@ void DataBase::Last()
 {
    int id = Count();
    numberOfRecord = Count();
+   /*
    GotoInProg(id);
    is_deleted = ReadDelete(fs);
    ReadData(fs);
    while(is_deleted != false)        {GotoInProg(id);       is_deleted = ReadDelete(fs);  ReadData(fs);    id++;}
+   */
+   
+   do
+   {
+      GotoInProg(id);
+      is_deleted = ReadDelete(fs);
+      id++;
+   }while(is_deleted);
+   ReadData(fs);
    
    BofF = true; EofF = false;
 }
@@ -237,7 +286,7 @@ bool DataBase::ReadDelete(fstream& f)
    return is_deleted;
 }
 
-void DataBase::WriteTitle(fstream& f)
+void DataBase::WriteTitle(fstream& f)   // здесь буфер
 {
    f.seekg(0, ios::beg);
    int size = Size();
@@ -245,11 +294,6 @@ void DataBase::WriteTitle(fstream& f)
    f.write((char*)&size, sizeof(int));
    f.write((char*)&amountOfRecord, sizeof(int));
    f.flush();
-}
-
-int DataBase::SizeTitle()
-{
-   return sizeof(int)*2 + sizeof(char)*15 ;     // для названия класса длина 15
 }
 
 void DataBase::ReadTitle(fstream& f)

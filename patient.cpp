@@ -1,6 +1,7 @@
 #include "patient.h"
 #include <iostream>
 #include <fstream>
+#include <cstring>
 using namespace std;
 
 // удалена или нет нужно реализовать через database и отдельно
@@ -31,7 +32,12 @@ void Patient::ReadData(fstream &f)
 void Patient::WriteData(fstream &f)
 {
    //f.write((char*)&is_deleted, sizeof(bool));
-   f.write((char*)name.c_str(), 100); 
+   char buf[100];
+   
+   memset(buf, 0, sizeof(buf));
+   strncpy(buf, name.c_str(), sizeof(buf) - 1);
+   
+   f.write((char*)&buf, sizeof(buf)); 
    f.write((char*)&age, sizeof(int));
    f.write((char*)&weight, sizeof(int));
    f.write((char*)&height, sizeof(int));
