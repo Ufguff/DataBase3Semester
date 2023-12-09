@@ -1,5 +1,5 @@
 # database.h patient.h
-!database.cpp cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype database.h errno.h exception filesystem fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
+!database.cpp cctype cerrno clocale cstdint cstdio cstdlib cstring ctype.h cwchar cwctype database.h errno.h exception filesystem fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string.h string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
 !database.h cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype errno.h exception fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
 !main.cpp cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype database.h errno.h exception initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream patient.h signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
 !patient.cpp cctype cerrno clocale cstdint cstdio cstdlib cstring ctype.h cwchar cwctype database.h errno.h exception fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream patient.h signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string.h string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
@@ -16,6 +16,7 @@ test3() -> void #<main.cpp>
 test4() -> void #<main.cpp>
 test5() -> void #<main.cpp>
 test6() -> void #<main.cpp>
+test7() -> void #<main.cpp>
 	DataBase:%amountOfRecord : long #<database.h>
 	DataBase:%numberOfRecord : long #<database.h>
 	DataBase:%isChangeable : bool #<database.h>
@@ -27,6 +28,7 @@ test6() -> void #<main.cpp>
 	DataBase:%EofF : bool #<database.h>
 	DataBase:%BofF : bool #<database.h>
 	DataBase:%is_deleted : bool #<database.h>
+	DataBase:%Check(int) -> bool #<database.h>
 	DataBase:%WriteDelete : void #<database.h>
 	DataBase:%ReadDelete : bool #<database.h>
 	DataBase:%WriteTitle : void #<database.h>

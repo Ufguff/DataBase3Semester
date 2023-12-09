@@ -12,8 +12,6 @@ class Patient : public DataBase
    int weight;	//  вес пациента (измерения проходят в килограммах)
    int height;	// рост пациента (измерения проходят в сантиметрах)
    bool isIll;  // болен ли пациент
-
-   
    // определения виртуальных методов класса DataBase
    void ReadData(std::fstream& f);
    void WriteData(std::fstream& f);

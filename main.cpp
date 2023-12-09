@@ -10,7 +10,6 @@ void test1()    // тест добавления и перемещения по файлу (до реализации удалённ
    obj1->Open();
    
    obj1->Insert();
-   
    obj1->SetName("Timofei");
    obj1->SetAge(19);
    obj1->SetWeight(65);
@@ -18,18 +17,13 @@ void test1()    // тест добавления и перемещения по файлу (до реализации удалённ
    obj1->SetIsIll(true);
    obj1->Post();
    
-  // system("pause");
-   
    obj1->Insert();
-   
    obj1->SetName("Ivan");
    obj1->SetAge(13);
    obj1->SetWeight(100);
    obj1->SetHeight(2000);
    obj1->SetIsIll(true);
    obj1->Post();
-
-   //system("pause");
    
    obj1->Insert();
    obj1->SetName("Sofia");
@@ -39,61 +33,41 @@ void test1()    // тест добавления и перемещения по файлу (до реализации удалённ
    obj1->SetIsIll(false);
    obj1->Post();
    
-  // system("pause");
-   
-   
    cout << "Count - " << obj1->Count() << endl;
    cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
-   
-   
-   obj1->First();       // проверка 1 записи
-   //obj1->Cancel();
 
+   obj1->First();       // проверка 1 записи
    
    cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
    
-   
-  
    obj1->Next();       // проверка 1 записи
-   //obj1->Cancel();
    
    cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
-   
-   
    
    obj1->Last();       // проверка последней записи
-   //obj1->Cancel();
    
    cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
-   
-   
-   
+
    obj1->Goto(2);               // произвольное передвижение
-   //obj1->Cancel();
-   
-   
+
    cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
-   
-   
-   
+
    obj1->Prev();               // произвольное передвижение
-   //obj1->Cancel();
-   
+
    cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
-   
-   
+
    obj1->Close();
 }
 
@@ -105,7 +79,6 @@ void test2()    // перезапись записи
    obj1->Open();
    
    obj1->Insert();
-   
    obj1->SetName("Timofei");
    obj1->SetAge(19);
    obj1->SetWeight(65);
@@ -114,14 +87,12 @@ void test2()    // перезапись записи
    obj1->Post();
    
    obj1->Insert();
-   
    obj1->SetName("Ivan");
    obj1->SetAge(13);
    obj1->SetWeight(100);
    obj1->SetHeight(2000);
    obj1->SetIsIll(true);
    obj1->Post();
-
 
    obj1->First();
    
@@ -153,7 +124,6 @@ void test3()    // тест удалённой записи и перемешения с удаленной записью
    obj1->Open();
    
    obj1->Insert();
-   
    obj1->SetName("Timofei");
    obj1->SetAge(19);
    obj1->SetWeight(65);
@@ -162,7 +132,6 @@ void test3()    // тест удалённой записи и перемешения с удаленной записью
    obj1->Post();
    
    obj1->Insert();
-   
    obj1->SetName("Ivan");
    obj1->SetAge(13);
    obj1->SetWeight(100);
@@ -208,7 +177,6 @@ void test3()    // тест удалённой записи и перемешения с удаленной записью
    cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
-   
 }
 
 
@@ -218,7 +186,6 @@ void test4()    // тест goto с удалёнными записями
    obj1->Open();
    
    obj1->Insert();
-   
    obj1->SetName("Timofei");
    obj1->SetAge(19);
    obj1->SetWeight(65);
@@ -227,7 +194,6 @@ void test4()    // тест goto с удалёнными записями
    obj1->Post();
    
    obj1->Insert();
-   
    obj1->SetName("Ivan");
    obj1->SetAge(13);
    obj1->SetWeight(100);
@@ -252,17 +218,13 @@ void test4()    // тест goto с удалёнными записями
    obj1->SetIsIll(true);
    obj1->Post();
    
-   //system("pause");
-   
    obj1->Prev();
    
    cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
    
-   
    obj1->Delete();      // удаление 3 записи
-   //obj1->Prev();      не ставим предыдущий потому что Delete автоматически переносит запись на -1 (когда же это первая запись Delete идёт вперед)
    obj1->Delete();      // удаление 2 записи
    
    obj1->First();
@@ -276,7 +238,6 @@ void test4()    // тест goto с удалёнными записями
    cout << obj1->GetWeight() << endl << endl;
    
    obj1->Goto(2);
-   //obj1->Next();
    cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
@@ -290,7 +251,6 @@ void test5()
    obj1->Open();
    
    obj1->Insert();
-   
    obj1->SetName("Timofei");
    obj1->SetAge(19);
    obj1->SetWeight(65);
@@ -336,11 +296,60 @@ void test6()
    obj1->SetIsIll(true);
    obj1->Post();
    
-    cout << obj1->GetName() << endl;
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
+   obj1->Insert();
+   
+   obj1->SetName("Ivan");
+   obj1->SetAge(13);
+   obj1->SetWeight(100);
+   obj1->SetHeight(2000);
+   obj1->SetIsIll(true);
+   obj1->Post();
+
+
+   cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
    
-  // system("pause");
+   obj1->Insert();
+   obj1->SetName("Sofia");
+   obj1->SetAge(15);
+   obj1->SetWeight(50);
+   obj1->SetHeight(160);
+   obj1->SetIsIll(false);
+   obj1->Post();
+   
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
+   
+   obj1->First();
+   
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
+}
+
+
+void test7()
+{
+   Patient * obj1 = new Patient("7");
+   obj1->Open();
+   
+   obj1->Insert();
+   
+   obj1->SetName("Timofei");
+   obj1->SetAge(19);
+   obj1->SetWeight(65);
+   obj1->SetHeight(190);
+   obj1->SetIsIll(true);
+   obj1->Post();
+   
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
    
    obj1->Insert();
    
@@ -352,10 +361,9 @@ void test6()
    obj1->Post();
 
 
- cout << obj1->GetName() << endl;
+   cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
-   //system("pause");
    
    obj1->Insert();
    obj1->SetName("Sofia");
@@ -365,17 +373,49 @@ void test6()
    obj1->SetIsIll(false);
    obj1->Post();
    
-    cout << obj1->GetName() << endl;
-   cout << obj1->GetAge() << endl;
-   cout << obj1->GetWeight() << endl << endl;
+   obj1->Insert();
    
-   obj1->First();
+   obj1->SetName("Ivan");
+   obj1->SetAge(13);
+   obj1->SetWeight(100);
+   obj1->SetHeight(2000);
+   obj1->SetIsIll(true);
+   obj1->Post();
+   
+   obj1->Insert();
+   
+   obj1->SetName("Ivan");
+   obj1->SetAge(13);
+   obj1->SetWeight(100);
+   obj1->SetHeight(2000);
+   obj1->SetIsIll(true);
+   obj1->Post();
+   
+   obj1->Insert();
+   
+   obj1->SetName("Ivan");
+   obj1->SetAge(13);
+   obj1->SetWeight(100);
+   obj1->SetHeight(2000);
+   obj1->SetIsIll(true);
+   obj1->Post();
+   
+   obj1->Delete();
+   obj1->Delete();
+   obj1->Delete();
    
    cout << obj1->GetName() << endl;
    cout << obj1->GetAge() << endl;
    cout << obj1->GetWeight() << endl << endl;
+   
+   obj1->Goto(4);
+   
+   cout << obj1->GetName() << endl;
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl;
+   
+   obj1->Close();
 }
-
 int main()
 {
    setlocale(LC_ALL, "ru");
@@ -384,16 +424,15 @@ int main()
    cout << "--------------------------------------------------------" << endl;
    test2();
    cout << "--------------------------------------------------------" << endl;
-   
    test3();
-   
    cout << "--------------------------------------------------------" << endl;
    test4();
    cout << "--------------------------------------------------------" << endl;
    test5();
    cout << "--------------------------------------------------------" << endl;
    test6();
+   cout << "--------------------------------------------------------" << endl;
    
-   
+   test7();
    return 0;
 }

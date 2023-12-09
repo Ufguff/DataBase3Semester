@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <fstream>
-// #include <string>
 
 class DataBase {
 protected:
@@ -13,9 +12,7 @@ protected:
    virtual int Size() = 0;
    virtual void Recalc() = 0;
    std::string nameOfClass;
-   
 
-   
 private:
    long amountOfRecord = 0;    // суммарное количество записей
    long numberOfRecord = 0;    // текущая запись
@@ -26,14 +23,13 @@ private:
    int lastRecord = 0;
    bool EofF, BofF;
    bool is_deleted;
+   bool Check(int);
    
-
    void WriteDelete(std::fstream& fs, bool is_del);
    bool ReadDelete(std::fstream& fs);
-   
    void WriteTitle(std::fstream& fs);
    void ReadTitle(std::fstream& fs);
-   
+
 public:
    DataBase(std::string obj, std::string nOfClass) : nameOfFile(obj), nameOfClass(nOfClass) {}  // подумать надо ли строку и параметр какой то 
    ~DataBase(){}

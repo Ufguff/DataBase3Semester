@@ -4,8 +4,6 @@
 #include <cstring>
 using namespace std;
 
-// удалена или нет нужно реализовать через database и отдельно
-
 int Patient::Size()
 {
    return sizeof(int) * 3 + sizeof(bool) + sizeof(char)*100; // максимальная длина stirng - 100
@@ -14,8 +12,6 @@ int Patient::Size()
 
 void Patient::ReadData(fstream &f)
 {
-   //f.read((char*)&is_deleted, sizeof(bool));
-   
    size_t len = 100;
    char buf[len + 1];         // Выделение буфера для чтения
    f.read(buf, len);                   // Чтение (с нулевым байтом)
@@ -31,9 +27,7 @@ void Patient::ReadData(fstream &f)
 
 void Patient::WriteData(fstream &f)
 {
-   //f.write((char*)&is_deleted, sizeof(bool));
    char buf[100];
-   
    memset(buf, 0, sizeof(buf));
    strncpy(buf, name.c_str(), sizeof(buf) - 1);
    
