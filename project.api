@@ -19,6 +19,7 @@ test6() -> void #<main.cpp>
 test7() -> void #<main.cpp>
 	DataBase:%amountOfRecord : long #<database.h>
 	DataBase:%numberOfRecord : long #<database.h>
+	DataBase:%allRecords : long #<database.h>
 	DataBase:%isChangeable : bool #<database.h>
 	DataBase:%false : boolisInserted= #<database.h>
 	DataBase:%nameOfFile : std::string #<database.h>

@@ -14,13 +14,14 @@ protected:
    std::string nameOfClass;
 
 private:
-   long amountOfRecord = 0;    // суммарное количество записей
+   long amountOfRecord = 0;    // суммарное количество существующих записей
    long numberOfRecord = 0;    // текущая запись
+   long allRecords = 0; //      количество удаленных и существующих записей
    bool isChangeable = false, isInserted = false;  // для Edit() | для Insert()
    std::string nameOfFile;     // название файла для работы с ним
    std::fstream fs;  // поток для файла
    void GotoInProg(long id); // перейти на запись с идентификатором id (для функций библиотеки)
-   int lastRecord = 0;
+   int lastRecord = 0;  // сохранение записи 
    bool EofF, BofF;
    bool is_deleted;
    bool Check(int);

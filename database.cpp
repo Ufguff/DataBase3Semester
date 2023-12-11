@@ -7,14 +7,14 @@ using namespace std;
 
 bool debugOn = false;    // true - включает вывод текущей записи и всех записей | false - отключает данную возможность
 
-constexpr int SizeTitle = sizeof(int)*2 + sizeof(char)*15;
+constexpr int SizeTitle = sizeof(int)*3 + sizeof(char)*15;
 
 void PrintNums(int m, int n)
 {
    if (debugOn) cout << m << "- num | amout - " << n << endl;        // откладка для перемещения
 }
 bool DataBase::Check(int id)
-{if (id <= amountOfRecord || id < 0) return false; else return true;}
+{if (id <= amountOfRecord) return false; else return true;}
 
 void DataBase::Open()
 {
@@ -33,8 +33,8 @@ void DataBase::Open()
    if(is_new)   WriteTitle(fs);
    else ReadTitle(fs);
    
-   if (amountOfRecord == 0) {BofF = true; EofF = true;}
-   else {BofF = true; EofF = false;}
+   if (Count() == 0) {BofF = true; EofF = true;}
+   else {BofF = false; EofF = false;}
 }
 
 void DataBase::Close()  { if (fs.is_open())  fs.close(); }
@@ -72,7 +72,8 @@ void DataBase::First()
    }while(is_deleted);
    ReadData(fs);
    
-   BofF = false; EofF = true;
+   if (Count() == 0) {BofF = true; EofF = true;}
+   else {BofF = false; EofF = false;}
    
    PrintNums(numberOfRecord, amountOfRecord);         //
 }
@@ -80,7 +81,7 @@ void DataBase::First()
 void DataBase::Next()
 {
    if (Eof()){
-      int id = ++numberOfRecord, count = 0;
+      int id = ++numberOfRecord;
       if (Check(id))       return;
       PrintNums(numberOfRecord, amountOfRecord);         //
       do
@@ -100,7 +101,7 @@ PrintNums(numberOfRecord, amountOfRecord);         //
 void DataBase::Prev()
 {
    if (Bof()) {
-      int id = --numberOfRecord, count = 0;
+      int id = --numberOfRecord;
       if (Check(id))       return;
       PrintNums(numberOfRecord, amountOfRecord);         //
       do
@@ -118,41 +119,40 @@ void DataBase::Prev()
 
 void DataBase::Last()
 {
-   int id = Count();
+   int id = allRecords;
    numberOfRecord = Count();
    do
    {
       GotoInProg(id);
       is_deleted = ReadDelete(fs);
-      id++;
+      id--;
    }while(is_deleted);
    ReadData(fs);
    
-   BofF = true; EofF = false;
+   if (Count() == 0) {BofF = true; EofF = true;}
+   else {BofF = false; EofF = false;}
 }
 
 void DataBase::Post()
 {   
    if (isChangeable || isInserted)              // если режимы не выставлены
    {
-      if(isChangeable)     
-      {
-         GotoInProg(Id());
-      }
-      else if (isInserted)
+      if(isInserted)     
       {
          amountOfRecord++;
          numberOfRecord = amountOfRecord;
+         allRecords++;
+         WriteTitle(fs);
       }
-      GotoInProg(Id());
+      GotoInProg(numberOfRecord);
       WriteDelete(fs, false);
       WriteData(fs);
-      
+      /*
       if (amountOfRecord == numberOfRecord) {BofF = true; EofF = false;}
       else if (1 == numberOfRecord)        {BofF = false; EofF = true;}
       else {BofF = true; EofF = true;}
-      
-      WriteTitle(fs);
+      */
+      BofF = true;      EofF = true;    // ?????????????
       
       isChangeable = false;
       isInserted = false;
@@ -223,8 +223,10 @@ void DataBase::WriteTitle(fstream& f)
    strncpy(buf, nameOfClass.c_str(), sizeof(buf) - 1);
    
    int size = Size();
+   int allsize = allRecords;
    f.write((char*)&buf, sizeof(buf)); 
    f.write((char*)&size, sizeof(int));
+   f.write((char*)&allsize, sizeof(int));
    f.write((char*)&amountOfRecord, sizeof(int));
    f.flush();
 }
@@ -239,6 +241,7 @@ void DataBase::ReadTitle(fstream& f)
    buf[len] = 0;
    nameOfClass = buf;     
    f.read((char*)&size, sizeof(int));
+   f.read((char*)&allRecords, sizeof(int));
    f.read((char*)&amountOfRecord, sizeof(int));
    f.flush();
 }
