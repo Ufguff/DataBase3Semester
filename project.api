@@ -17,6 +17,7 @@ test4() -> void #<main.cpp>
 test5() -> void #<main.cpp>
 test6() -> void #<main.cpp>
 test7() -> void #<main.cpp>
+test8() -> void #<main.cpp>
 	DataBase:%amountOfRecord : long #<database.h>
 	DataBase:%numberOfRecord : long #<database.h>
 	DataBase:%allRecords : long #<database.h>

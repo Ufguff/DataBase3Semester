@@ -5,7 +5,7 @@
 #include "database.h"
 using namespace std;
 
-bool debugOn = false;    // true - включает вывод текущей записи и всех записей | false - отключает данную возможность
+bool debugOn = true;    // true - включает вывод текущей записи и всех записей | false - отключает данную возможность
 
 constexpr int SizeTitle = sizeof(int)*3 + sizeof(char)*15;
 
@@ -14,7 +14,7 @@ void PrintNums(int m, int n)
    if (debugOn) cout << m << "- num | amout - " << n << endl;        // откладка для перемещения
 }
 bool DataBase::Check(int id)
-{if (id <= amountOfRecord) return false; else return true;}
+{return !((id < amountOfRecord + 1) && (1 <= id));}
 
 void DataBase::Open()
 {
@@ -80,9 +80,9 @@ void DataBase::First()
 
 void DataBase::Next()
 {
-   if (Eof()){
+   if (!Eof()){
       int id = ++numberOfRecord;
-      if (Check(id))       return;
+      if (Check(id))       {BofF = false; EofF = true; numberOfRecord--; return; }
       PrintNums(numberOfRecord, amountOfRecord);         //
       do
       {
@@ -92,17 +92,17 @@ void DataBase::Next()
       }while(is_deleted);
       ReadData(fs);
       
-      if (amountOfRecord == numberOfRecord) {BofF = true; EofF = false;}
-      else {BofF = true; EofF = true;}
+   //if (numberOfRecord <= amountOfRecord) {BofF = false; EofF = false;}
+   //else {BofF = false; EofF = true; numberOfRecord--; GotoInProg(numberOfRecord);}
    }
 PrintNums(numberOfRecord, amountOfRecord);         //   
 }
 
 void DataBase::Prev()
 {
-   if (Bof()) {
+   if (!Bof()) {
       int id = --numberOfRecord;
-      if (Check(id))       return;
+      if (Check(id))       { BofF = true; EofF = false; numberOfRecord++; return;}
       PrintNums(numberOfRecord, amountOfRecord);         //
       do
       {
@@ -112,10 +112,19 @@ void DataBase::Prev()
       }while(is_deleted);
       ReadData(fs);
       
-      if (1 == numberOfRecord) {BofF = false; EofF = true;}
-      else {BofF = true; EofF = true;}
+      //if (0 < numberOfRecord) {BofF = false; EofF = false;}
+//      else {BofF = true; EofF = false; numberOfRecord++;}
    }
 }
+
+/*
+темно бордовый 
+темно зеленый
+черный
+серый
+теплая с покладом 
+
+*/
 
 void DataBase::Last()
 {
@@ -152,7 +161,7 @@ void DataBase::Post()
       else if (1 == numberOfRecord)        {BofF = false; EofF = true;}
       else {BofF = true; EofF = true;}
       */
-      BofF = true;      EofF = true;    // ?????????????
+      BofF = true;      EofF = true;    // ????????????? 
       
       isChangeable = false;
       isInserted = false;
@@ -177,6 +186,8 @@ void DataBase::Cancel()
 void DataBase::Insert()
 {
    lastRecord = numberOfRecord;
+   // если нвая вставка то num -1
+   // если не меняется то зачем сохранять
    isInserted = true;
 }
 
