@@ -430,11 +430,7 @@ void test8()
    obj1->SetHeight(190);
    obj1->SetIsIll(true);
    obj1->Post();
-   
-   cout << obj1->GetName() << endl;
-   cout << obj1->GetAge() << endl;
-   cout << obj1->GetWeight() << endl << endl;
-   
+
    obj1->Insert();
    
    obj1->SetName("Ivan");
@@ -443,11 +439,6 @@ void test8()
    obj1->SetHeight(2000);
    obj1->SetIsIll(true);
    obj1->Post();
-
-
-   cout << obj1->GetName() << endl;
-   cout << obj1->GetAge() << endl;
-   cout << obj1->GetWeight() << endl << endl;
    
    obj1->Insert();
    obj1->SetName("Sofia");
@@ -508,7 +499,7 @@ void test8()
 int main()
 {
    setlocale(LC_ALL, "ru");
-   /*
+   
    test1();
    cout << "--------------------------------------------------------" << endl;
    test2();
@@ -523,7 +514,6 @@ int main()
    cout << "--------------------------------------------------------" << endl;
    test7();
    cout << "--------------------------------------------------------" << endl;
-   */
    test8();
    return 0;
 }

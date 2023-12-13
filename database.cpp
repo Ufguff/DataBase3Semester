@@ -5,7 +5,7 @@
 #include "database.h"
 using namespace std;
 
-bool debugOn = true;    // true - включает вывод текущей записи и всех записей | false - отключает данную возможность
+bool debugOn = false;    // true - включает вывод текущей записи и всех записей | false - отключает данную возможность
 
 constexpr int SizeTitle = sizeof(int)*3 + sizeof(char)*15;
 
@@ -91,9 +91,6 @@ void DataBase::Next()
          id++;
       }while(is_deleted);
       ReadData(fs);
-      
-   //if (numberOfRecord <= amountOfRecord) {BofF = false; EofF = false;}
-   //else {BofF = false; EofF = true; numberOfRecord--; GotoInProg(numberOfRecord);}
    }
 PrintNums(numberOfRecord, amountOfRecord);         //   
 }
@@ -111,20 +108,8 @@ void DataBase::Prev()
          id--;
       }while(is_deleted);
       ReadData(fs);
-      
-      //if (0 < numberOfRecord) {BofF = false; EofF = false;}
-//      else {BofF = true; EofF = false; numberOfRecord++;}
    }
 }
-
-/*
-темно бордовый 
-темно зеленый
-черный
-серый
-теплая с покладом 
-
-*/
 
 void DataBase::Last()
 {
@@ -156,12 +141,8 @@ void DataBase::Post()
       GotoInProg(numberOfRecord);
       WriteDelete(fs, false);
       WriteData(fs);
-      /*
-      if (amountOfRecord == numberOfRecord) {BofF = true; EofF = false;}
-      else if (1 == numberOfRecord)        {BofF = false; EofF = true;}
-      else {BofF = true; EofF = true;}
-      */
-      BofF = true;      EofF = true;    // ????????????? 
+      
+      BofF = false;      EofF = false;
       
       isChangeable = false;
       isInserted = false;
@@ -185,9 +166,6 @@ void DataBase::Cancel()
 
 void DataBase::Insert()
 {
-   lastRecord = numberOfRecord;
-   // если нвая вставка то num -1
-   // если не меняется то зачем сохранять
    isInserted = true;
 }
 
