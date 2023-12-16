@@ -2,6 +2,7 @@
 #include <iostream>
 #include <filesystem>
 #include <cstring>
+#include "plog/Log.h"
 #include "database.h"
 using namespace std;
 
@@ -11,7 +12,8 @@ constexpr int SizeTitle = sizeof(int)*3 + sizeof(char)*15;
 
 void PrintNums(int m, int n)
 {
-   if (debugOn) cout << m << "- num | amout - " << n << endl;        // откладка для перемещения
+   LOGD << m << "- num | amout - " << n << endl;
+   //if (debugOn) cout << m << "- num | amout - " << n << endl;        // откладка для перемещения
 }
 bool DataBase::Check(int id)
 {return !((id < amountOfRecord + 1) && (1 <= id));}
@@ -21,7 +23,7 @@ void DataBase::Open()
    bool is_new = false;
    filesystem::create_directory(filesystem::current_path().string() + "\\DataBases");
    string path = filesystem::current_path().string() + "\\DataBases\\" + nameOfFile + ".db";
-   if (debugOn) cout << path << endl;
+   LOGD << path << endl;        //
    ifstream check(path);
    if (! check.is_open()){
       fs.open (path, std::fstream::in | std::fstream::out | std::fstream::binary | fstream::app);
@@ -81,8 +83,8 @@ void DataBase::First()
 void DataBase::Next()
 {
    if (!Eof()){
-      int id = ++numberOfRecord;
-      if (Check(id))       {BofF = false; EofF = true; numberOfRecord--; return; }
+      int id = numberOfRecord + 1;
+      if (Check(id))       {BofF = false; EofF = true; return; }
       PrintNums(numberOfRecord, amountOfRecord);         //
       do
       {
@@ -91,6 +93,7 @@ void DataBase::Next()
          id++;
       }while(is_deleted);
       ReadData(fs);
+      numberOfRecord++;
    }
 PrintNums(numberOfRecord, amountOfRecord);         //   
 }
@@ -98,8 +101,8 @@ PrintNums(numberOfRecord, amountOfRecord);         //
 void DataBase::Prev()
 {
    if (!Bof()) {
-      int id = --numberOfRecord;
-      if (Check(id))       { BofF = true; EofF = false; numberOfRecord++; return;}
+      int id = numberOfRecord - 1;
+      if (Check(id))       { BofF = true; EofF = false;  return;}
       PrintNums(numberOfRecord, amountOfRecord);         //
       do
       {
@@ -108,6 +111,7 @@ void DataBase::Prev()
          id--;
       }while(is_deleted);
       ReadData(fs);
+      numberOfRecord--;
    }
 }
 
@@ -171,14 +175,13 @@ void DataBase::Insert()
 
 void DataBase::Edit()
 {
-   lastRecord = numberOfRecord;
    isChangeable = true;
 }
 
 void DataBase::Delete()
 {
    PrintNums(numberOfRecord, amountOfRecord);   //
-   if (debugOn)cout << "del" << endl;         //
+   LOGD << "del" << endl;         //
    
    GotoInProg(Id());
    WriteDelete(fs, true);

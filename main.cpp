@@ -1,5 +1,5 @@
 #include "patient.h"
-
+#include "plog/Log.h"
 
 using namespace std;
 
@@ -499,6 +499,7 @@ void test8()
 int main()
 {
    setlocale(LC_ALL, "ru");
+   plog::init(plog::debug, "Output.txt");
    
    test1();
    cout << "--------------------------------------------------------" << endl;
