@@ -1,9 +1,9 @@
 # database.h patient.h
-!database.cpp cstring database.h filesystem fstream iostream plog/Log.h #<#>
-!database.h fstream iostream #<#>
-!main.cpp database.h iostream patient.h plog/Log.h #<#>
-!patient.cpp cstring database.h fstream iostream patient.h #<#>
-!patient.h database.h fstream iostream #<#>
+!database.cpp cctype cerrno clocale cstdint cstdio cstdlib cstring ctype.h cwchar cwctype database.h errno.h exception filesystem fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream plog/Log.h signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string.h string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
+!database.h cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype errno.h exception fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
+!main.cpp cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype database.h errno.h exception initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream patient.h plog/Log.h signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
+!patient.cpp cctype cerrno clocale cstdint cstdio cstdlib cstring ctype.h cwchar cwctype database.h errno.h exception fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream patient.h signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string.h string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
+!patient.h cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype database.h errno.h exception fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
 DataBase _type_ #<database.h>
 Patient _type_ #<patient.h>
 PrintNums(int m, int n) -> void #<database.cpp>
@@ -18,6 +18,7 @@ test5() -> void #<main.cpp>
 test6() -> void #<main.cpp>
 test7() -> void #<main.cpp>
 test8() -> void #<main.cpp>
+test9() -> void #<main.cpp>
 	DataBase:%amountOfRecord : long #<database.h>
 	DataBase:%numberOfRecord : long #<database.h>
 	DataBase:%allRecords : long #<database.h>
@@ -26,7 +27,6 @@ test8() -> void #<main.cpp>
 	DataBase:%nameOfFile : std::string #<database.h>
 	DataBase:%fs : std::fstream #<database.h>
 	DataBase:%GotoInProg(long id) -> void #<database.h>
-	DataBase:%lastRecord : int #<database.h>
 	DataBase:%EofF : bool #<database.h>
 	DataBase:%BofF : bool #<database.h>
 	DataBase:%is_deleted : bool #<database.h>

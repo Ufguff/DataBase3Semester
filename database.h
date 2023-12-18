@@ -21,7 +21,6 @@ private:
    std::string nameOfFile;     // название файла для работы с ним
    std::fstream fs;  // поток для файла
    void GotoInProg(long id); // перейти на запись с идентификатором id (для функций библиотеки)
-   int lastRecord = 0;  // сохранение записи 
    bool EofF, BofF;
    bool is_deleted;
    bool Check(int);

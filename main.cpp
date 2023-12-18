@@ -31,6 +31,7 @@ void test1()    // тест добавления и перемещения по файлу (до реализации удалённ
    obj1->SetWeight(50);
    obj1->SetHeight(160);
    obj1->SetIsIll(false);
+   cout << obj1->Id() << endl;
    obj1->Post();
    
    cout << "Count - " << obj1->Count() << endl;
@@ -225,7 +226,7 @@ void test4()    // тест goto с удалёнными записями
    cout << obj1->GetWeight() << endl << endl;
    
    obj1->Delete();      // удаление 3 записи
-   obj1->Delete();      // удаление 2 записи
+   obj1->Delete();      // удаление 4 записи
    
    obj1->First();
    cout << obj1->GetName() << endl;
@@ -496,6 +497,60 @@ void test8()
   cout<<obj1->Id() << endl; 
 }
 
+void test9()
+{
+   Patient * obj1 = new Patient("9");
+   obj1->Open();
+   
+   obj1->Insert();
+   
+   obj1->SetName("Timofei");
+   obj1->SetAge(19);
+   obj1->SetWeight(65);
+   obj1->SetHeight(190);
+   obj1->SetIsIll(true);
+   obj1->Post();
+
+   obj1->Insert();
+   
+   obj1->SetName("Ivan");
+   obj1->SetAge(13);
+   obj1->SetWeight(100);
+   obj1->SetHeight(2000);
+   obj1->SetIsIll(true);
+   obj1->Post();
+   
+   obj1->Insert();
+   obj1->SetName("Sofia");
+   obj1->SetAge(15);
+   obj1->SetWeight(50);
+   obj1->SetHeight(160);
+   obj1->SetIsIll(false);
+   obj1->Post();
+   
+   obj1->Goto(2);
+   cout << obj1->GetName() << endl;
+      cout << obj1->GetAge() << endl;
+      cout << obj1->GetWeight() << endl << endl;
+   obj1->Delete();
+   cout << obj1->GetName() << endl;
+      cout << obj1->GetAge() << endl;
+      cout << obj1->GetWeight() << endl << endl;
+   obj1->Delete();
+   cout << obj1->GetName() << endl;
+      cout << obj1->GetAge() << endl;
+      cout << obj1->GetWeight() << endl << endl;
+   obj1->First();
+   cout << obj1->GetName() << endl;
+      cout << obj1->GetAge() << endl;
+      cout << obj1->GetWeight() << endl << endl;
+   obj1->Goto(3);
+   cout << obj1->GetName() << endl;
+      cout << obj1->GetAge() << endl;
+      cout << obj1->GetWeight() << endl << endl;
+   obj1->Close();
+}
+
 int main()
 {
    setlocale(LC_ALL, "ru");
@@ -516,5 +571,7 @@ int main()
    test7();
    cout << "--------------------------------------------------------" << endl;
    test8();
+   cout << "--------------------------------------------------------" << endl;
+   test9();
    return 0;
 }

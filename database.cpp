@@ -10,13 +10,9 @@ bool debugOn = false;    // true - включает вывод текущей записи и всех записей 
 
 constexpr int SizeTitle = sizeof(int)*3 + sizeof(char)*15;
 
-void PrintNums(int m, int n)
-{
-   LOGD << m << "- num | amout - " << n << endl;
-   //if (debugOn) cout << m << "- num | amout - " << n << endl;        // откладка для перемещения
-}
-bool DataBase::Check(int id)
-{return !((id < amountOfRecord + 1) && (1 <= id));}
+void PrintNums(int m, int n)    {       LOGD << m << "- num | amout - " << n << endl;     }
+
+bool DataBase::Check(int id)    {       return !((id < allRecords + 1) && (1 <= id));       }
 
 void DataBase::Open()
 {
@@ -56,15 +52,15 @@ void DataBase::Goto(long id)
    numberOfRecord = id;
    GotoInProg(id);
    is_deleted = ReadDelete(fs);
+   if (is_deleted)       {cerr << "Deleted record. Exit" << endl; exit(1); }
    ReadData(fs);
-   while(is_deleted != false)      {is_deleted = ReadDelete(fs);        ReadData(fs);}
+   EofF = false;        BofF = false;
 }
 
 void DataBase::First()
 {
    int id = 1;
    if (Check(id))       return;
-   numberOfRecord = 1;
    PrintNums(numberOfRecord, amountOfRecord);         //
    do
    {
@@ -73,6 +69,8 @@ void DataBase::First()
       id++;
    }while(is_deleted);
    ReadData(fs);
+   
+   numberOfRecord = --id;
    
    if (Count() == 0) {BofF = true; EofF = true;}
    else {BofF = false; EofF = false;}
@@ -93,7 +91,8 @@ void DataBase::Next()
          id++;
       }while(is_deleted);
       ReadData(fs);
-      numberOfRecord++;
+      
+      numberOfRecord = --id;
    }
 PrintNums(numberOfRecord, amountOfRecord);         //   
 }
@@ -111,14 +110,15 @@ void DataBase::Prev()
          id--;
       }while(is_deleted);
       ReadData(fs);
-      numberOfRecord--;
+      
+      numberOfRecord = ++id;
    }
+   PrintNums(numberOfRecord, amountOfRecord);         //   
 }
 
 void DataBase::Last()
 {
    int id = allRecords;
-   numberOfRecord = Count();
    do
    {
       GotoInProg(id);
@@ -126,6 +126,8 @@ void DataBase::Last()
       id--;
    }while(is_deleted);
    ReadData(fs);
+
+   numberOfRecord = id;
    
    if (Count() == 0) {BofF = true; EofF = true;}
    else {BofF = false; EofF = false;}
@@ -138,8 +140,8 @@ void DataBase::Post()
       if(isInserted)     
       {
          amountOfRecord++;
-         numberOfRecord = amountOfRecord;
          allRecords++;
+         numberOfRecord = allRecords;
          WriteTitle(fs);
       }
       GotoInProg(numberOfRecord);
@@ -161,37 +163,30 @@ void DataBase::Cancel()
    {
       isChangeable = false;
       isInserted = false;
-      numberOfRecord = lastRecord;
       GotoInProg(Id());
       ReadData(fs);
    }
    PrintNums(numberOfRecord, amountOfRecord);         //
 }
 
-void DataBase::Insert()
-{
-   isInserted = true;
-}
+void DataBase::Insert(){       isInserted = true;       }
 
-void DataBase::Edit()
-{
-   isChangeable = true;
-}
+void DataBase::Edit(){   isChangeable = true;   }
 
 void DataBase::Delete()
 {
    PrintNums(numberOfRecord, amountOfRecord);   //
    LOGD << "del" << endl;         //
-   
-   GotoInProg(Id());
-   WriteDelete(fs, true);
-   amountOfRecord--;
-   WriteTitle(fs);
-   PrintNums(numberOfRecord, amountOfRecord);         //
-   
-   if (amountOfRecord == 0) {numberOfRecord = 0; return;}
-   else if ((numberOfRecord - 1) <= amountOfRecord)        Prev();
-   else         Next();
+   GotoInProg(numberOfRecord);
+   if(!ReadDelete(fs))   // ограничение если запись уже удалена
+   {
+      GotoInProg(numberOfRecord);       // из-за того что прочитали delete записи мы переставляем указатель чтобы записать
+      WriteDelete(fs, true);
+      amountOfRecord--;
+      WriteTitle(fs);
+      PrintNums(numberOfRecord, amountOfRecord);         //
+      Next();
+   }
 }
 
 bool DataBase::Eof()    { return EofF; }
