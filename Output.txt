@@ -1,0 +1,474 @@
+﻿2023-12-19 21:24:06.732 DEBUG [22316] [DataBase::Open@22] C:\Users\Ufguff\Documents\GitHub\DataBase3Semester\DataBases\9.db
+
+2023-12-19 21:24:06.734 DEBUG [22316] [PrintNums@13] 1- num | amout - 1
+
+2023-12-19 21:24:06.734 DEBUG [22316] [PrintNums@13] 2- num | amout - 2
+
+2023-12-19 21:24:06.734 DEBUG [22316] [PrintNums@13] 3- num | amout - 3
+
+2023-12-19 21:24:06.734 DEBUG [22316] [PrintNums@13] 4- num | amout - 4
+
+2023-12-19 21:24:06.734 DEBUG [22316] [PrintNums@13] 5- num | amout - 5
+
+2023-12-19 21:24:06.734 DEBUG [22316] [PrintNums@13] 2- num | amout - 5
+
+2023-12-19 21:24:06.734 DEBUG [22316] [DataBase::Delete@179] del
+
+2023-12-19 21:24:06.734 DEBUG [22316] [PrintNums@13] 2- num | amout - 4
+
+2023-12-19 21:24:06.734 DEBUG [22316] [PrintNums@13] 2- num | amout - 4
+
+2023-12-19 21:24:06.756 DEBUG [22316] [PrintNums@13] 3- num | amout - 4
+
+2023-12-19 21:24:06.757 DEBUG [22316] [PrintNums@13] 3- num | amout - 4
+
+2023-12-19 21:24:06.757 DEBUG [22316] [DataBase::Delete@179] del
+
+2023-12-19 21:24:06.757 DEBUG [22316] [PrintNums@13] 3- num | amout - 3
+
+2023-12-19 21:24:06.757 DEBUG [22316] [PrintNums@13] 3- num | amout - 3
+
+2023-12-19 21:24:06.758 DEBUG [22316] [PrintNums@13] 4- num | amout - 3
+
+2023-12-19 21:24:06.758 DEBUG [22316] [PrintNums@13] 4- num | amout - 3
+
+2023-12-19 21:24:06.758 DEBUG [22316] [DataBase::Delete@179] del
+
+2023-12-19 21:24:06.758 DEBUG [22316] [PrintNums@13] 4- num | amout - 2
+
+2023-12-19 21:24:06.758 DEBUG [22316] [PrintNums@13] 4- num | amout - 2
+
+2023-12-19 21:24:06.758 DEBUG [22316] [PrintNums@13] 5- num | amout - 2
+
+2023-12-19 21:24:06.758 DEBUG [22316] [PrintNums@13] 5- num | amout - 2
+
+2023-12-19 21:24:06.758 DEBUG [22316] [DataBase::Delete@179] del
+
+2023-12-19 21:24:06.758 DEBUG [22316] [PrintNums@13] 5- num | amout - 1
+
+2023-12-19 21:24:06.758 DEBUG [22316] [PrintNums@13] 5- num | amout - 1
+
+2023-12-19 21:24:06.758 DEBUG [22316] [PrintNums@13] 1- num | amout - 1
+
+2023-12-19 21:24:06.758 DEBUG [22316] [PrintNums@13] 1- num | amout - 1
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [DataBase::Open@22] C:\Users\Ufguff\Documents\GitHub\DataBase3Semester\DataBases\9.db
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 1- num | amout - 1
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 2- num | amout - 2
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 3- num | amout - 3
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 4- num | amout - 4
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 5- num | amout - 5
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 2- num | amout - 5
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [DataBase::Delete@179] del
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 2- num | amout - 4
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 2- num | amout - 4
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 3- num | amout - 4
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 3- num | amout - 4
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [DataBase::Delete@179] del
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 3- num | amout - 3
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 3- num | amout - 3
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 4- num | amout - 3
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 4- num | amout - 3
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [DataBase::Delete@179] del
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 4- num | amout - 2
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 4- num | amout - 2
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 5- num | amout - 2
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 5- num | amout - 2
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [DataBase::Delete@179] del
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 5- num | amout - 1
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 5- num | amout - 1
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 1- num | amout - 1
+
+1899-00--1 -1:-1:-1.000 DEBUG [19100] [PrintNums@13] 1- num | amout - 1
+
+2023-12-19 21:27:06.899 DEBUG [17304] [DataBase::Open@22] C:\Users\Ufguff\Documents\GitHub\DataBase3Semester\DataBases\9.db
+
+2023-12-19 21:27:06.900 DEBUG [17304] [PrintNums@13] 1- num | amout - 1
+
+2023-12-19 21:27:06.900 DEBUG [17304] [PrintNums@13] 2- num | amout - 2
+
+2023-12-19 21:27:06.900 DEBUG [17304] [PrintNums@13] 3- num | amout - 3
+
+2023-12-19 21:27:06.900 DEBUG [17304] [PrintNums@13] 4- num | amout - 4
+
+2023-12-19 21:27:06.900 DEBUG [17304] [PrintNums@13] 5- num | amout - 5
+
+2023-12-19 21:27:06.900 DEBUG [17304] [PrintNums@13] 2- num | amout - 5
+
+2023-12-19 21:27:06.900 DEBUG [17304] [DataBase::Delete@179] del
+
+2023-12-19 21:27:06.900 DEBUG [17304] [PrintNums@13] 2- num | amout - 4
+
+2023-12-19 21:27:06.900 DEBUG [17304] [PrintNums@13] 2- num | amout - 4
+
+2023-12-19 21:27:06.900 DEBUG [17304] [PrintNums@13] 3- num | amout - 4
+
+2023-12-19 21:27:06.901 DEBUG [17304] [PrintNums@13] 4- num | amout - 4
+
+2023-12-19 21:27:06.901 DEBUG [17304] [DataBase::Delete@179] del
+
+2023-12-19 21:27:06.902 DEBUG [17304] [PrintNums@13] 4- num | amout - 3
+
+2023-12-19 21:27:06.902 DEBUG [17304] [PrintNums@13] 4- num | amout - 3
+
+2023-12-19 21:27:06.902 DEBUG [17304] [PrintNums@13] 5- num | amout - 3
+
+2023-12-19 21:27:06.902 DEBUG [17304] [PrintNums@13] 5- num | amout - 3
+
+2023-12-19 21:27:06.902 DEBUG [17304] [DataBase::Delete@179] del
+
+2023-12-19 21:27:06.902 DEBUG [17304] [PrintNums@13] 5- num | amout - 2
+
+2023-12-19 21:27:06.902 DEBUG [17304] [PrintNums@13] 5- num | amout - 2
+
+2023-12-19 21:27:06.902 DEBUG [17304] [PrintNums@13] 1- num | amout - 2
+
+2023-12-19 21:27:06.902 DEBUG [17304] [PrintNums@13] 1- num | amout - 2
+
+2023-12-19 21:27:06.902 DEBUG [17304] [PrintNums@13] 3- num | amout - 2
+
+2023-12-19 21:27:06.902 DEBUG [17304] [PrintNums@13] 3- num | amout - 2
+
+2023-12-19 21:27:58.677 DEBUG [19512] [DataBase::Open@22] C:\Users\Ufguff\Documents\GitHub\DataBase3Semester\DataBases\9.db
+
+2023-12-19 21:27:58.678 DEBUG [19512] [PrintNums@13] 1- num | amout - 1
+
+2023-12-19 21:27:58.678 DEBUG [19512] [PrintNums@13] 2- num | amout - 2
+
+2023-12-19 21:27:58.678 DEBUG [19512] [PrintNums@13] 3- num | amout - 3
+
+2023-12-19 21:27:58.679 DEBUG [19512] [PrintNums@13] 4- num | amout - 4
+
+2023-12-19 21:27:58.679 DEBUG [19512] [PrintNums@13] 5- num | amout - 5
+
+2023-12-19 21:27:58.679 DEBUG [19512] [PrintNums@13] 2- num | amout - 5
+
+2023-12-19 21:27:58.679 DEBUG [19512] [DataBase::Delete@180] del
+
+2023-12-19 21:27:58.679 DEBUG [19512] [PrintNums@13] 2- num | amout - 4
+
+2023-12-19 21:27:58.679 DEBUG [19512] [PrintNums@13] 2- num | amout - 4
+
+2023-12-19 21:27:58.679 DEBUG [19512] [PrintNums@13] 3- num | amout - 4
+
+2023-12-19 21:27:58.680 DEBUG [19512] [PrintNums@13] 4- num | amout - 4
+
+2023-12-19 21:27:58.680 DEBUG [19512] [DataBase::Delete@180] del
+
+2023-12-19 21:27:58.680 DEBUG [19512] [PrintNums@13] 4- num | amout - 3
+
+2023-12-19 21:27:58.680 DEBUG [19512] [PrintNums@13] 4- num | amout - 3
+
+2023-12-19 21:27:58.680 DEBUG [19512] [PrintNums@13] 5- num | amout - 3
+
+2023-12-19 21:27:58.680 DEBUG [19512] [PrintNums@13] 5- num | amout - 3
+
+2023-12-19 21:27:58.680 DEBUG [19512] [DataBase::Delete@180] del
+
+2023-12-19 21:27:58.680 DEBUG [19512] [PrintNums@13] 5- num | amout - 2
+
+2023-12-19 21:27:58.680 DEBUG [19512] [PrintNums@13] 5- num | amout - 2
+
+2023-12-19 21:27:58.680 DEBUG [19512] [PrintNums@13] 5- num | amout - 2
+
+2023-12-19 21:27:58.680 DEBUG [19512] [PrintNums@13] 1- num | amout - 2
+
+2023-12-19 21:27:58.680 DEBUG [19512] [PrintNums@13] 1- num | amout - 2
+
+2023-12-19 21:27:58.680 DEBUG [19512] [PrintNums@13] 3- num | amout - 2
+
+2023-12-19 21:27:58.680 DEBUG [19512] [PrintNums@13] 3- num | amout - 2
+
+2023-12-19 21:31:20.146 DEBUG [24296] [DataBase::Open@20] C:\Users\Ufguff\Documents\GitHub\DataBase3Semester\DataBases\1.db
+
+2023-12-19 21:31:20.147 DEBUG [24296] [PrintNums@11] 1- num | amout - 1
+
+2023-12-19 21:31:20.147 DEBUG [24296] [PrintNums@11] 2- num | amout - 2
+
+2023-12-19 21:31:20.147 DEBUG [24296] [PrintNums@11] 3- num | amout - 3
+
+2023-12-19 21:31:20.149 DEBUG [24296] [PrintNums@11] 3- num | amout - 3
+
+2023-12-19 21:31:20.149 DEBUG [24296] [PrintNums@11] 1- num | amout - 3
+
+2023-12-19 21:31:20.150 DEBUG [24296] [PrintNums@11] 1- num | amout - 3
+
+2023-12-19 21:31:20.150 DEBUG [24296] [PrintNums@11] 2- num | amout - 3
+
+2023-12-19 21:31:20.152 DEBUG [24296] [PrintNums@11] 2- num | amout - 3
+
+2023-12-19 21:31:20.152 DEBUG [24296] [PrintNums@11] 1- num | amout - 3
+
+2023-12-19 21:31:20.155 DEBUG [24296] [DataBase::Open@20] C:\Users\Ufguff\Documents\GitHub\DataBase3Semester\DataBases\2.db
+
+2023-12-19 21:31:20.156 DEBUG [24296] [PrintNums@11] 1- num | amout - 1
+
+2023-12-19 21:31:20.156 DEBUG [24296] [PrintNums@11] 2- num | amout - 2
+
+2023-12-19 21:31:20.156 DEBUG [24296] [PrintNums@11] 2- num | amout - 2
+
+2023-12-19 21:31:20.156 DEBUG [24296] [PrintNums@11] 1- num | amout - 2
+
+2023-12-19 21:31:20.158 DEBUG [24296] [PrintNums@11] 1- num | amout - 2
+
+2023-12-19 21:31:20.161 DEBUG [24296] [DataBase::Open@20] C:\Users\Ufguff\Documents\GitHub\DataBase3Semester\DataBases\3.db
+
+2023-12-19 21:31:20.183 DEBUG [24296] [PrintNums@11] 1- num | amout - 1
+
+2023-12-19 21:31:20.183 DEBUG [24296] [PrintNums@11] 2- num | amout - 2
+
+2023-12-19 21:31:20.183 DEBUG [24296] [PrintNums@11] 3- num | amout - 3
+
+2023-12-19 21:31:20.185 DEBUG [24296] [PrintNums@11] 2- num | amout - 3
+
+2023-12-19 21:31:20.185 DEBUG [24296] [DataBase::Delete@177] del
+
+2023-12-19 21:31:20.185 DEBUG [24296] [PrintNums@11] 2- num | amout - 2
+
+2023-12-19 21:31:20.185 DEBUG [24296] [PrintNums@11] 2- num | amout - 2
+
+2023-12-19 21:31:20.185 DEBUG [24296] [PrintNums@11] 3- num | amout - 2
+
+2023-12-19 21:31:20.186 DEBUG [24296] [PrintNums@11] 3- num | amout - 2
+
+2023-12-19 21:31:20.187 DEBUG [24296] [PrintNums@11] 3- num | amout - 2
+
+2023-12-19 21:31:20.188 DEBUG [24296] [PrintNums@11] 3- num | amout - 2
+
+2023-12-19 21:31:20.188 DEBUG [24296] [PrintNums@11] 1- num | amout - 2
+
+2023-12-19 21:31:20.191 DEBUG [24296] [DataBase::Open@20] C:\Users\Ufguff\Documents\GitHub\DataBase3Semester\DataBases\4.db
+
+2023-12-19 21:31:20.192 DEBUG [24296] [PrintNums@11] 1- num | amout - 1
+
+2023-12-19 21:31:20.192 DEBUG [24296] [PrintNums@11] 2- num | amout - 2
+
+2023-12-19 21:31:20.192 DEBUG [24296] [PrintNums@11] 3- num | amout - 3
+
+2023-12-19 21:31:20.192 DEBUG [24296] [PrintNums@11] 4- num | amout - 4
+
+2023-12-19 21:31:20.192 DEBUG [24296] [PrintNums@11] 4- num | amout - 4
+
+2023-12-19 21:31:20.192 DEBUG [24296] [PrintNums@11] 3- num | amout - 4
+
+2023-12-19 21:31:20.193 DEBUG [24296] [PrintNums@11] 3- num | amout - 4
+
+2023-12-19 21:31:20.193 DEBUG [24296] [DataBase::Delete@177] del
+
+2023-12-19 21:31:20.193 DEBUG [24296] [PrintNums@11] 3- num | amout - 3
+
+2023-12-19 21:31:20.193 DEBUG [24296] [PrintNums@11] 3- num | amout - 3
+
+2023-12-19 21:31:20.193 DEBUG [24296] [PrintNums@11] 4- num | amout - 3
+
+2023-12-19 21:31:20.193 DEBUG [24296] [PrintNums@11] 4- num | amout - 3
+
+2023-12-19 21:31:20.193 DEBUG [24296] [DataBase::Delete@177] del
+
+2023-12-19 21:31:20.193 DEBUG [24296] [PrintNums@11] 4- num | amout - 2
+
+2023-12-19 21:31:20.193 DEBUG [24296] [PrintNums@11] 4- num | amout - 2
+
+2023-12-19 21:31:20.193 DEBUG [24296] [PrintNums@11] 4- num | amout - 2
+
+2023-12-19 21:31:20.193 DEBUG [24296] [PrintNums@11] 1- num | amout - 2
+
+2023-12-19 21:31:20.194 DEBUG [24296] [PrintNums@11] 1- num | amout - 2
+
+2023-12-19 21:31:20.194 DEBUG [24296] [PrintNums@11] 2- num | amout - 2
+
+2023-12-19 21:31:20.199 DEBUG [24296] [DataBase::Open@20] C:\Users\Ufguff\Documents\GitHub\DataBase3Semester\DataBases\5.db
+
+2023-12-19 21:31:20.200 DEBUG [24296] [PrintNums@11] 1- num | amout - 1
+
+2023-12-19 21:31:20.200 DEBUG [24296] [PrintNums@11] 1- num | amout - 1
+
+2023-12-19 21:31:20.201 DEBUG [24296] [PrintNums@11] 1- num | amout - 1
+
+2023-12-19 21:31:20.201 DEBUG [24296] [DataBase::Delete@177] del
+
+2023-12-19 21:31:20.201 DEBUG [24296] [PrintNums@11] 1- num | amout - 0
+
+2023-12-19 21:31:20.201 DEBUG [24296] [PrintNums@11] 1- num | amout - 0
+
+2023-12-19 21:31:20.201 DEBUG [24296] [PrintNums@11] 2- num | amout - 1
+
+2023-12-19 21:31:20.204 DEBUG [24296] [DataBase::Open@20] C:\Users\Ufguff\Documents\GitHub\DataBase3Semester\DataBases\6.db
+
+2023-12-19 21:31:20.204 DEBUG [24296] [PrintNums@11] 1- num | amout - 1
+
+2023-12-19 21:31:20.206 DEBUG [24296] [PrintNums@11] 2- num | amout - 2
+
+2023-12-19 21:31:20.207 DEBUG [24296] [PrintNums@11] 3- num | amout - 3
+
+2023-12-19 21:31:20.208 DEBUG [24296] [PrintNums@11] 3- num | amout - 3
+
+2023-12-19 21:31:20.208 DEBUG [24296] [PrintNums@11] 1- num | amout - 3
+
+2023-12-19 21:31:20.211 DEBUG [24296] [DataBase::Open@20] C:\Users\Ufguff\Documents\GitHub\DataBase3Semester\DataBases\7.db
+
+2023-12-19 21:31:20.213 DEBUG [24296] [PrintNums@11] 1- num | amout - 1
+
+2023-12-19 21:31:20.214 DEBUG [24296] [PrintNums@11] 2- num | amout - 2
+
+2023-12-19 21:31:20.215 DEBUG [24296] [PrintNums@11] 3- num | amout - 3
+
+2023-12-19 21:31:20.215 DEBUG [24296] [PrintNums@11] 4- num | amout - 4
+
+2023-12-19 21:31:20.215 DEBUG [24296] [PrintNums@11] 5- num | amout - 5
+
+2023-12-19 21:31:20.215 DEBUG [24296] [PrintNums@11] 6- num | amout - 6
+
+2023-12-19 21:31:20.215 DEBUG [24296] [PrintNums@11] 6- num | amout - 6
+
+2023-12-19 21:31:20.215 DEBUG [24296] [DataBase::Delete@177] del
+
+2023-12-19 21:31:20.215 DEBUG [24296] [PrintNums@11] 6- num | amout - 5
+
+2023-12-19 21:31:20.215 DEBUG [24296] [PrintNums@11] 6- num | amout - 5
+
+2023-12-19 21:31:20.215 DEBUG [24296] [PrintNums@11] 6- num | amout - 5
+
+2023-12-19 21:31:20.215 DEBUG [24296] [DataBase::Delete@177] del
+
+2023-12-19 21:31:20.215 DEBUG [24296] [PrintNums@11] 6- num | amout - 5
+
+2023-12-19 21:31:20.215 DEBUG [24296] [DataBase::Delete@177] del
+
+2023-12-19 21:31:20.220 DEBUG [24296] [DataBase::Open@20] C:\Users\Ufguff\Documents\GitHub\DataBase3Semester\DataBases\8.db
+
+2023-12-19 21:31:20.221 DEBUG [24296] [PrintNums@11] 1- num | amout - 1
+
+2023-12-19 21:31:20.221 DEBUG [24296] [PrintNums@11] 2- num | amout - 2
+
+2023-12-19 21:31:20.221 DEBUG [24296] [PrintNums@11] 3- num | amout - 3
+
+2023-12-19 21:31:20.221 DEBUG [24296] [PrintNums@11] 4- num | amout - 4
+
+2023-12-19 21:31:20.221 DEBUG [24296] [PrintNums@11] 5- num | amout - 5
+
+2023-12-19 21:31:20.221 DEBUG [24296] [PrintNums@11] 6- num | amout - 6
+
+2023-12-19 21:31:20.221 DEBUG [24296] [PrintNums@11] 6- num | amout - 6
+
+2023-12-19 21:31:20.221 DEBUG [24296] [PrintNums@11] 1- num | amout - 6
+
+2023-12-19 21:31:20.223 DEBUG [24296] [PrintNums@11] 1- num | amout - 6
+
+2023-12-19 21:31:20.223 DEBUG [24296] [PrintNums@11] 2- num | amout - 6
+
+2023-12-19 21:31:20.224 DEBUG [24296] [PrintNums@11] 2- num | amout - 6
+
+2023-12-19 21:31:20.224 DEBUG [24296] [PrintNums@11] 3- num | amout - 6
+
+2023-12-19 21:31:20.225 DEBUG [24296] [PrintNums@11] 3- num | amout - 6
+
+2023-12-19 21:31:20.225 DEBUG [24296] [PrintNums@11] 4- num | amout - 6
+
+2023-12-19 21:31:20.226 DEBUG [24296] [PrintNums@11] 4- num | amout - 6
+
+2023-12-19 21:31:20.226 DEBUG [24296] [PrintNums@11] 5- num | amout - 6
+
+2023-12-19 21:31:20.227 DEBUG [24296] [PrintNums@11] 5- num | amout - 6
+
+2023-12-19 21:31:20.227 DEBUG [24296] [PrintNums@11] 6- num | amout - 6
+
+2023-12-19 21:31:20.229 DEBUG [24296] [PrintNums@11] 6- num | amout - 6
+
+2023-12-19 21:31:20.231 DEBUG [24296] [PrintNums@11] 6- num | amout - 6
+
+2023-12-19 21:31:20.231 DEBUG [24296] [PrintNums@11] 5- num | amout - 6
+
+2023-12-19 21:31:20.232 DEBUG [24296] [PrintNums@11] 5- num | amout - 6
+
+2023-12-19 21:31:20.232 DEBUG [24296] [PrintNums@11] 4- num | amout - 6
+
+2023-12-19 21:31:20.233 DEBUG [24296] [PrintNums@11] 4- num | amout - 6
+
+2023-12-19 21:31:20.233 DEBUG [24296] [PrintNums@11] 3- num | amout - 6
+
+2023-12-19 21:31:20.234 DEBUG [24296] [PrintNums@11] 3- num | amout - 6
+
+2023-12-19 21:31:20.234 DEBUG [24296] [PrintNums@11] 2- num | amout - 6
+
+2023-12-19 21:31:20.236 DEBUG [24296] [PrintNums@11] 2- num | amout - 6
+
+2023-12-19 21:31:20.236 DEBUG [24296] [PrintNums@11] 1- num | amout - 6
+
+2023-12-19 21:31:20.237 DEBUG [24296] [PrintNums@11] 1- num | amout - 6
+
+2023-12-19 21:31:20.239 DEBUG [24296] [DataBase::Open@20] C:\Users\Ufguff\Documents\GitHub\DataBase3Semester\DataBases\9.db
+
+2023-12-19 21:31:20.239 DEBUG [24296] [PrintNums@11] 1- num | amout - 1
+
+2023-12-19 21:31:20.239 DEBUG [24296] [PrintNums@11] 2- num | amout - 2
+
+2023-12-19 21:31:20.239 DEBUG [24296] [PrintNums@11] 3- num | amout - 3
+
+2023-12-19 21:31:20.239 DEBUG [24296] [PrintNums@11] 4- num | amout - 4
+
+2023-12-19 21:31:20.240 DEBUG [24296] [PrintNums@11] 5- num | amout - 5
+
+2023-12-19 21:31:20.240 DEBUG [24296] [PrintNums@11] 2- num | amout - 5
+
+2023-12-19 21:31:20.240 DEBUG [24296] [DataBase::Delete@177] del
+
+2023-12-19 21:31:20.240 DEBUG [24296] [PrintNums@11] 2- num | amout - 4
+
+2023-12-19 21:31:20.240 DEBUG [24296] [PrintNums@11] 2- num | amout - 4
+
+2023-12-19 21:31:20.240 DEBUG [24296] [PrintNums@11] 3- num | amout - 4
+
+2023-12-19 21:31:20.241 DEBUG [24296] [PrintNums@11] 4- num | amout - 4
+
+2023-12-19 21:31:20.241 DEBUG [24296] [DataBase::Delete@177] del
+
+2023-12-19 21:31:20.241 DEBUG [24296] [PrintNums@11] 4- num | amout - 3
+
+2023-12-19 21:31:20.241 DEBUG [24296] [PrintNums@11] 4- num | amout - 3
+
+2023-12-19 21:31:20.241 DEBUG [24296] [PrintNums@11] 5- num | amout - 3
+
+2023-12-19 21:31:20.241 DEBUG [24296] [PrintNums@11] 5- num | amout - 3
+
+2023-12-19 21:31:20.241 DEBUG [24296] [DataBase::Delete@177] del
+
+2023-12-19 21:31:20.241 DEBUG [24296] [PrintNums@11] 5- num | amout - 2
+
+2023-12-19 21:31:20.241 DEBUG [24296] [PrintNums@11] 5- num | amout - 2
+
+2023-12-19 21:31:20.241 DEBUG [24296] [PrintNums@11] 5- num | amout - 2
+
+2023-12-19 21:31:20.241 DEBUG [24296] [PrintNums@11] 1- num | amout - 2
+
+2023-12-19 21:31:20.241 DEBUG [24296] [PrintNums@11] 1- num | amout - 2
+
+2023-12-19 21:31:20.241 DEBUG [24296] [PrintNums@11] 3- num | amout - 2
+
+2023-12-19 21:31:20.242 DEBUG [24296] [PrintNums@11] 3- num | amout - 2
+

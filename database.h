@@ -21,20 +21,20 @@ private:
    std::string nameOfFile;     // название файла для работы с ним
    std::fstream fs;  // поток для файла
    void GotoInProg(long id); // перейти на запись с идентификатором id (для функций библиотеки)
-   bool EofF, BofF;
-   bool is_deleted;
-   bool Check(int);
+   bool EofF, BofF;     // флаги для определения начала/конца файла
+   bool is_deleted;     // переменная для определения удалён ли файл
+   bool Check(int);     // проверка выхода за границу записей
    
-   void WriteDelete(std::fstream& fs, bool is_del);
-   bool ReadDelete(std::fstream& fs);
-   void WriteTitle(std::fstream& fs);
-   void ReadTitle(std::fstream& fs);
+   void WriteDelete(std::fstream& fs, bool is_del);     // запись is_deleted
+   bool ReadDelete(std::fstream& fs);   // чтение is_deleted
+   void WriteTitle(std::fstream& fs);   // запись заголовка базы данных
+   void ReadTitle(std::fstream& fs);    // чтение заголовка базы данных
 
 public:
-   DataBase(std::string obj, std::string nOfClass) : nameOfFile(obj), nameOfClass(nOfClass) {}  // подумать надо ли строку и параметр какой то 
-   ~DataBase(){}
-   void Open();
-   void Close();
+   DataBase(std::string obj, std::string nOfClass) : nameOfFile(obj), nameOfClass(nOfClass) {}  // конструктор
+   ~DataBase(){}        // деструктор
+   void Open(); // открытие файла
+   void Close(); // закрытие файла
    long Id(); // идентификатор записи (смещение в файле)
    void Goto(long id);  // перейти на запись с идентификатором id 
    void First(); // перейти на первую запись в файле

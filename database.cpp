@@ -6,8 +6,6 @@
 #include "database.h"
 using namespace std;
 
-bool debugOn = false;    // true - включает вывод текущей записи и всех записей | false - отключает данную возможность
-
 constexpr int SizeTitle = sizeof(int)*3 + sizeof(char)*15;
 
 void PrintNums(int m, int n)    {       LOGD << m << "- num | amout - " << n << endl;     }
@@ -60,11 +58,11 @@ void DataBase::Goto(long id)
 void DataBase::First()
 {
    int id = 1;
-   if (Check(id))       return;
    PrintNums(numberOfRecord, amountOfRecord);         //
    do
    {
-      GotoInProg(id);
+      if (Check(id))       return;
+      GotoInProg(id);      
       is_deleted = ReadDelete(fs);
       id++;
    }while(is_deleted);
@@ -82,10 +80,10 @@ void DataBase::Next()
 {
    if (!Eof()){
       int id = numberOfRecord + 1;
-      if (Check(id))       {BofF = false; EofF = true; return; }
       PrintNums(numberOfRecord, amountOfRecord);         //
       do
       {
+         if (Check(id))       {BofF = false; EofF = true; return; }
          GotoInProg(id);
          is_deleted = ReadDelete(fs);
          id++;
@@ -101,10 +99,10 @@ void DataBase::Prev()
 {
    if (!Bof()) {
       int id = numberOfRecord - 1;
-      if (Check(id))       { BofF = true; EofF = false;  return;}
       PrintNums(numberOfRecord, amountOfRecord);         //
       do
       {
+         if (Check(id))       { BofF = true; EofF = false;  return;}
          GotoInProg(id);
          is_deleted = ReadDelete(fs);
          id--;

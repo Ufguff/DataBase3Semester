@@ -528,26 +528,40 @@ void test9()
    obj1->SetIsIll(false);
    obj1->Post();
    
+   obj1->Insert();
+   
+   obj1->SetName("Ivan");
+   obj1->SetAge(13);
+   obj1->SetWeight(100);
+   obj1->SetHeight(2000);
+   obj1->SetIsIll(true);
+   obj1->Post();
+   
+   obj1->Insert();
+   obj1->SetName("Sofia");
+   obj1->SetAge(15);
+   obj1->SetWeight(50);
+   obj1->SetHeight(160);
+   obj1->SetIsIll(false);
+   obj1->Post();
+   
    obj1->Goto(2);
-   cout << obj1->GetName() << endl;
-      cout << obj1->GetAge() << endl;
-      cout << obj1->GetWeight() << endl << endl;
    obj1->Delete();
    cout << obj1->GetName() << endl;
       cout << obj1->GetAge() << endl;
-      cout << obj1->GetWeight() << endl << endl;
+      cout << obj1->GetWeight() << endl << endl; 
+
+   obj1->Goto(4);
    obj1->Delete();
-   cout << obj1->GetName() << endl;
-      cout << obj1->GetAge() << endl;
-      cout << obj1->GetWeight() << endl << endl;
+   obj1->Delete();
+   
    obj1->First();
-   cout << obj1->GetName() << endl;
-      cout << obj1->GetAge() << endl;
-      cout << obj1->GetWeight() << endl << endl;
-   obj1->Goto(3);
-   cout << obj1->GetName() << endl;
-      cout << obj1->GetAge() << endl;
-      cout << obj1->GetWeight() << endl << endl;
+   while(!obj1->Eof())
+   {
+      cout << obj1->Id() << endl;
+      obj1->Next();
+   }
+   cout << "yay" << endl;
    obj1->Close();
 }
 
