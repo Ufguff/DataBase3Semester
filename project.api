@@ -1,15 +1,16 @@
-# database.h patient.h
-!database.cpp cstring database.h filesystem fstream iostream plog/Log.h #<#>
-!database.h fstream iostream #<#>
-!main.cpp database.h iostream patient.h plog/Log.h #<#>
-!patient.cpp cstring database.h fstream iostream patient.h #<#>
-!patient.h database.h fstream iostream #<#>
-DataBase _type_ #<database.h>
-Patient _type_ #<patient.h>
+# database.hpp patient.hpp
+!database.cpp cctype cerrno clocale cstdint cstdio cstdlib cstring ctype.h cwchar cwctype database.hpp errno.h exception filesystem fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream plog/Log.h signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string.h string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
+!database.hpp cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype errno.h exception fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
+!main.cpp cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype database.hpp errno.h exception initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream patient.hpp plog/Log.h signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
+!patient.cpp cctype cerrno clocale cstdint cstdio cstdlib cstring ctype.h cwchar cwctype database.hpp errno.h exception fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream patient.hpp signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string.h string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
+!patient.hpp cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype database.hpp errno.h exception fstream initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo wchar.h wctype.h #<#>
+DataBase _type_ #<database.hpp>
+Patient _type_ #<patient.hpp>
 PrintNums(int m, int n) -> void #<database.cpp>
 SizeTitle : constexpr int #<database.cpp>
 main() -> int #<main.cpp>
 test1() -> void #<main.cpp>
+test10() -> void #<main.cpp>
 test2() -> void #<main.cpp>
 test3() -> void #<main.cpp>
 test4() -> void #<main.cpp>
@@ -18,71 +19,71 @@ test6() -> void #<main.cpp>
 test7() -> void #<main.cpp>
 test8() -> void #<main.cpp>
 test9() -> void #<main.cpp>
-	DataBase:%amountOfRecord : long #<database.h>
-	DataBase:%numberOfRecord : long #<database.h>
-	DataBase:%allRecords : long #<database.h>
-	DataBase:%isChangeable : bool #<database.h>
-	DataBase:%false : boolisInserted= #<database.h>
-	DataBase:%nameOfFile : std::string #<database.h>
-	DataBase:%fs : std::fstream #<database.h>
-	DataBase:%GotoInProg(long id) -> void #<database.h>
-	DataBase:%EofF : bool #<database.h>
-	DataBase:%BofF : bool #<database.h>
-	DataBase:%is_deleted : bool #<database.h>
-	DataBase:%Check(int) -> bool #<database.h>
-	DataBase:%WriteDelete : void #<database.h>
-	DataBase:%ReadDelete : bool #<database.h>
-	DataBase:%WriteTitle : void #<database.h>
-	DataBase:%ReadTitle : void #<database.h>
-	DataBase:%ReadData : virtual void #<database.h>
-	DataBase:%WriteData : virtual void #<database.h>
-	DataBase:%Size() -> virtual int #<database.h>
-	DataBase:%Recalc() -> virtual void #<database.h>
-	DataBase:%nameOfClass : std::string #<database.h>
-	DataBase::DataBase :  #<database.h>
-	DataBase::Close() -> void #<database.h>
-	DataBase::Id() -> long #<database.h>
-	DataBase::Goto(long id) -> void #<database.h>
-	DataBase::First() -> void #<database.h>
-	DataBase::Next() -> void #<database.h>
-	DataBase::Prev() -> void #<database.h>
-	DataBase::Last() -> void #<database.h>
-	DataBase::Post() -> void #<database.h>
-	DataBase::Cancel() -> void #<database.h>
-	DataBase::Insert() -> void #<database.h>
-	DataBase::Edit() -> void #<database.h>
-	DataBase::Delete() -> void #<database.h>
-	DataBase::Eof() -> bool #<database.h>
-	DataBase::Bof() -> bool #<database.h>
-	DataBase::Count() -> long #<database.h>
-	Patient:%name : std::string #<patient.h>
-	Patient:%age : int #<patient.h>
-	Patient:%weight : int #<patient.h>
-	Patient:%height : int #<patient.h>
-	Patient:%isIll : bool #<patient.h>
-	Patient:%ReadData : void #<patient.h>
-	Patient:%WriteData : void #<patient.h>
-	Patient:%Size() -> int #<patient.h>
-	Patient:%Recalc() -> void #<patient.h>
-	Patient:%ReadData : virtual void #<patient.h>
-	Patient:%WriteData : virtual void #<patient.h>
-	Patient:%Size() -> virtual int #<patient.h>
-	Patient:%Recalc() -> virtual void #<patient.h>
-	Patient:%nameOfClass : std::string #<patient.h>
-	Patient::Patient :  #<patient.h>
-	Patient::DataBase :  #<patient.h>
-	Patient::Close() -> void #<patient.h>
-	Patient::Id() -> long #<patient.h>
-	Patient::Goto(long id) -> void #<patient.h>
-	Patient::First() -> void #<patient.h>
-	Patient::Next() -> void #<patient.h>
-	Patient::Prev() -> void #<patient.h>
-	Patient::Last() -> void #<patient.h>
-	Patient::Post() -> void #<patient.h>
-	Patient::Cancel() -> void #<patient.h>
-	Patient::Insert() -> void #<patient.h>
-	Patient::Edit() -> void #<patient.h>
-	Patient::Delete() -> void #<patient.h>
-	Patient::Eof() -> bool #<patient.h>
-	Patient::Bof() -> bool #<patient.h>
-	Patient::Count() -> long #<patient.h>
+	DataBase:%amountOfRecord : long #<database.hpp>
+	DataBase:%numberOfRecord : long #<database.hpp>
+	DataBase:%allRecords : long #<database.hpp>
+	DataBase:%isChangeable : bool #<database.hpp>
+	DataBase:%false : boolisInserted= #<database.hpp>
+	DataBase:%nameOfFile : std::string #<database.hpp>
+	DataBase:%fs : std::fstream #<database.hpp>
+	DataBase:%GotoInProg(long id) -> void #<database.hpp>
+	DataBase:%EofF : bool #<database.hpp>
+	DataBase:%BofF : bool #<database.hpp>
+	DataBase:%is_deleted : bool #<database.hpp>
+	DataBase:%Check(int) -> bool #<database.hpp>
+	DataBase:%WriteDelete : void #<database.hpp>
+	DataBase:%ReadDelete : bool #<database.hpp>
+	DataBase:%WriteTitle : void #<database.hpp>
+	DataBase:%ReadTitle : void #<database.hpp>
+	DataBase:%ReadData : virtual void #<database.hpp>
+	DataBase:%WriteData : virtual void #<database.hpp>
+	DataBase:%Size() -> virtual int #<database.hpp>
+	DataBase:%Recalc() -> virtual void #<database.hpp>
+	DataBase:%nameOfClass : std::string #<database.hpp>
+	DataBase::DataBase :  #<database.hpp>
+	DataBase::Close() -> void #<database.hpp>
+	DataBase::Id() -> long #<database.hpp>
+	DataBase::Goto(long id) -> void #<database.hpp>
+	DataBase::First() -> void #<database.hpp>
+	DataBase::Next() -> void #<database.hpp>
+	DataBase::Prev() -> void #<database.hpp>
+	DataBase::Last() -> void #<database.hpp>
+	DataBase::Post() -> void #<database.hpp>
+	DataBase::Cancel() -> void #<database.hpp>
+	DataBase::Insert() -> void #<database.hpp>
+	DataBase::Edit() -> void #<database.hpp>
+	DataBase::Delete() -> void #<database.hpp>
+	DataBase::Eof() -> bool #<database.hpp>
+	DataBase::Bof() -> bool #<database.hpp>
+	DataBase::Count() -> long #<database.hpp>
+	Patient:%name : std::string #<patient.hpp>
+	Patient:%age : int #<patient.hpp>
+	Patient:%weight : int #<patient.hpp>
+	Patient:%height : int #<patient.hpp>
+	Patient:%isIll : bool #<patient.hpp>
+	Patient:%ReadData : void #<patient.hpp>
+	Patient:%WriteData : void #<patient.hpp>
+	Patient:%Size() -> int #<patient.hpp>
+	Patient:%Recalc() -> void #<patient.hpp>
+	Patient:%ReadData : virtual void #<patient.hpp>
+	Patient:%WriteData : virtual void #<patient.hpp>
+	Patient:%Size() -> virtual int #<patient.hpp>
+	Patient:%Recalc() -> virtual void #<patient.hpp>
+	Patient:%nameOfClass : std::string #<patient.hpp>
+	Patient::Patient :  #<patient.hpp>
+	Patient::DataBase :  #<patient.hpp>
+	Patient::Close() -> void #<patient.hpp>
+	Patient::Id() -> long #<patient.hpp>
+	Patient::Goto(long id) -> void #<patient.hpp>
+	Patient::First() -> void #<patient.hpp>
+	Patient::Next() -> void #<patient.hpp>
+	Patient::Prev() -> void #<patient.hpp>
+	Patient::Last() -> void #<patient.hpp>
+	Patient::Post() -> void #<patient.hpp>
+	Patient::Cancel() -> void #<patient.hpp>
+	Patient::Insert() -> void #<patient.hpp>
+	Patient::Edit() -> void #<patient.hpp>
+	Patient::Delete() -> void #<patient.hpp>
+	Patient::Eof() -> bool #<patient.hpp>
+	Patient::Bof() -> bool #<patient.hpp>
+	Patient::Count() -> long #<patient.hpp>

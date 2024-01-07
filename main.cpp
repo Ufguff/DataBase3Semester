@@ -1,4 +1,4 @@
-#include "patient.h"
+#include "patient.hpp"
 #include "plog/Log.h"
 
 using namespace std;
@@ -548,8 +548,8 @@ void test9()
    obj1->Goto(2);
    obj1->Delete();
    cout << obj1->GetName() << endl;
-      cout << obj1->GetAge() << endl;
-      cout << obj1->GetWeight() << endl << endl; 
+   cout << obj1->GetAge() << endl;
+   cout << obj1->GetWeight() << endl << endl; 
 
    obj1->Goto(4);
    obj1->Delete();
@@ -563,6 +563,13 @@ void test9()
    }
    cout << "yay" << endl;
    obj1->Close();
+}
+
+void test10()
+{
+   Patient db("10");
+   db.Open();
+   db.Close();
 }
 
 int main()
@@ -587,5 +594,6 @@ int main()
    test8();
    cout << "--------------------------------------------------------" << endl;
    test9();
+   test10();
    return 0;
 }

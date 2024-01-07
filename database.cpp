@@ -3,7 +3,7 @@
 #include <filesystem>
 #include <cstring>
 #include "plog/Log.h"
-#include "database.h"
+#include "database.hpp"
 using namespace std;
 
 constexpr int SizeTitle = sizeof(int)*3 + sizeof(char)*15;
@@ -57,6 +57,7 @@ void DataBase::Goto(long id)
 
 void DataBase::First()
 {
+   if (Count() == 0) {BofF = true; EofF = true;}
    int id = 1;
    PrintNums(numberOfRecord, amountOfRecord);         //
    do
@@ -116,6 +117,7 @@ void DataBase::Prev()
 
 void DataBase::Last()
 {
+   if (Count() == 0) {BofF = true; EofF = true;}
    int id = allRecords;
    do
    {

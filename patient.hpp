@@ -2,7 +2,7 @@
 #define PAT
 
 #include <iostream>
-#include "database.h"
+#include "database.hpp"
 
 class Patient : public DataBase
 {
